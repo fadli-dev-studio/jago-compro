@@ -15,29 +15,42 @@
   let badgeEl: HTMLDivElement | null = $state(null);
   let transformStyle = $state('opacity: 0;');
 
-  // Data statistik compact
-  const stats = [
-    {
-      value: "55+",
-      label: "Klien Korporat & UMKM",
-      description: "Telah mempercayakan legalitas, compro, dan website mereka."
-    },
-    {
-      value: "150+",
-      label: "Proyek Selesai",
-      description: "Desain company profile cetak, PDF, dan website corporate."
-    },
-    {
-      value: "100%",
-      label: "Desain Orisinal",
-      description: "Dibuat khusus dari awal sesuai brief, tanpa template."
-    },
-    {
-      value: "24/7",
-      label: "Konsultasi Responsif",
-      description: "Tim support kami siap membantu kebutuhan bisnis Anda."
+  // State untuk animasi count-up statistik
+  let clientCount = $state(0);
+  let projectCount = $state(0);
+  let originalCount = $state(0);
+  let supportCount = $state(0);
+
+  function animateValue(target: number, updateFn: (val: number) => void, duration: number) {
+    const start = 0;
+    const startTime = performance.now();
+
+    function step(timestamp: number) {
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = progress * (2 - progress); // Easing out quad
+      const current = Math.floor(start + (target - start) * ease);
+      
+      updateFn(current);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
     }
-  ];
+
+    requestAnimationFrame(step);
+  }
+
+  $effect(() => {
+    if (isContentRevealed) {
+      setTimeout(() => {
+        animateValue(450, (val) => clientCount = val, 1600);
+        animateValue(450, (val) => projectCount = val, 1600);
+        animateValue(100, (val) => originalCount = val, 1600);
+        animateValue(24, (val) => supportCount = val, 1000);
+      }, 400);
+    }
+  });
 
   const fullMainText = "One Stop Solution";
   const fullTaglineText = " • Dari Ide Menjadi Identitas";
@@ -311,21 +324,65 @@
   >
     <div class="w-full border-t border-white/10 pt-8">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-        {#each stats as stat}
-          <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 group">
-            <span class="text-3xl lg:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110">
-              {stat.value}
+        <!-- Stat 1: Klien -->
+        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 group">
+          <span class="text-3xl lg:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-[75px]">
+            {clientCount}+
+          </span>
+          <div class="flex flex-col">
+            <span class="text-white font-bold text-xs uppercase tracking-wider">
+              Klien Korporat & UMKM
             </span>
-            <div class="flex flex-col">
-              <span class="text-white font-bold text-xs uppercase tracking-wider">
-                {stat.label}
-              </span>
-              <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-[180px] mx-auto sm:mx-0">
-                {stat.description}
-              </span>
-            </div>
+            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-[180px] mx-auto sm:mx-0">
+              Telah mempercayakan legalitas, compro, dan website mereka.
+            </span>
           </div>
-        {/each}
+        </div>
+
+        <!-- Stat 2: Proyek Selesai -->
+        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 group">
+          <span class="text-3xl lg:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-[75px]">
+            {projectCount}+
+          </span>
+          <div class="flex flex-col">
+            <span class="text-white font-bold text-xs uppercase tracking-wider">
+              Proyek Selesai
+            </span>
+            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-[180px] mx-auto sm:mx-0">
+              Desain company profile cetak, PDF, dan website corporate.
+            </span>
+          </div>
+        </div>
+
+        <!-- Stat 3: Desain Orisinal -->
+        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 group">
+          <span class="text-3xl lg:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-[75px]">
+            {originalCount}%
+          </span>
+          <div class="flex flex-col">
+            <span class="text-white font-bold text-xs uppercase tracking-wider">
+              Desain Orisinal
+            </span>
+            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-[180px] mx-auto sm:mx-0">
+              Dibuat khusus dari awal sesuai brief, tanpa template.
+            </span>
+          </div>
+        </div>
+
+        <!-- Stat 4: Konsultasi Responsif -->
+        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 group">
+          <span class="text-3xl lg:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-[75px]">
+            {supportCount}/7
+          </span>
+          <div class="flex flex-col">
+            <span class="text-white font-bold text-xs uppercase tracking-wider">
+              Konsultasi Responsif
+            </span>
+            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-[180px] mx-auto sm:mx-0">
+              Tim support kami siap membantu kebutuhan bisnis Anda.
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
