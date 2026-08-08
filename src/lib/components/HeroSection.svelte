@@ -15,6 +15,30 @@
   let badgeEl: HTMLDivElement | null = $state(null);
   let transformStyle = $state('opacity: 0;');
 
+  // Data statistik compact
+  const stats = [
+    {
+      value: "55+",
+      label: "Klien Korporat & UMKM",
+      description: "Telah mempercayakan legalitas, compro, dan website mereka."
+    },
+    {
+      value: "150+",
+      label: "Proyek Selesai",
+      description: "Desain company profile cetak, PDF, dan website corporate."
+    },
+    {
+      value: "100%",
+      label: "Desain Orisinal",
+      description: "Dibuat khusus dari awal sesuai brief, tanpa template."
+    },
+    {
+      value: "24/7",
+      label: "Konsultasi Responsif",
+      description: "Tim support kami siap membantu kebutuhan bisnis Anda."
+    }
+  ];
+
   const fullMainText = "One Stop Solution";
   const fullTaglineText = " • Dari Ide Menjadi Identitas";
 
@@ -278,6 +302,33 @@
       </div>
     </div>
   </main>
+
+  <!-- Compact Stats Bar -->
+  <div 
+    class="container mx-auto px-6 lg:px-16 relative z-10 mt-8 lg:mt-16 mb-10 lg:mb-6 transition-all duration-1000 ease-out transform
+    {isContentRevealed ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-98'}"
+    style="transition-delay: 400ms;"
+  >
+    <div class="w-full border-t border-white/10 pt-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        {#each stats as stat}
+          <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 group">
+            <span class="text-3xl lg:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110">
+              {stat.value}
+            </span>
+            <div class="flex flex-col">
+              <span class="text-white font-bold text-xs uppercase tracking-wider">
+                {stat.label}
+              </span>
+              <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-[180px] mx-auto sm:mx-0">
+                {stat.description}
+              </span>
+            </div>
+          </div>
+        {/each}
+      </div>
+    </div>
+  </div>
 
   <!-- Background Image -->
   <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 pointer-events-none z-0" style="background-image: url('/background.webp');"></div>
