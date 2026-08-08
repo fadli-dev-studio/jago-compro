@@ -5,9 +5,13 @@ export const siteConfig = {
   whatsappExpressUrl: "https://api.whatsapp.com/send/?phone=6282253596399&text=Hallo+Jago+Compro%2C+saya+mau+pesan+desain+express&type=phone_number&app_absent=0",
   navItems: [
     { label: "Home", href: "#" },
-    { label: "Paket Harga", href: "#prices" },
+    { label: "Mengapa Kami", href: "#why-choose-us" },
+    { label: "Layanan", href: "#layanan" },
+    { label: "Klien", href: "#clients" },
     { label: "Testimoni", href: "#testimonials" },
+    { label: "Tim Kami", href: "#team" },
     { label: "Portofolio", href: "#portfolio" },
+    { label: "FAQ", href: "#faq" },
     { label: "Kontak", href: "#contact" },
   ],
   socials: {
