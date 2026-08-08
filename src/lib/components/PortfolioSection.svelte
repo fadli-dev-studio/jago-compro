@@ -1,6 +1,10 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import { Eye, X } from '@lucide/svelte';
   import { fade, scale } from 'svelte/transition';
+
+  let isVisible = $state(false);
+  let sectionEl: HTMLElement | null = $state(null);
 
   // Kategori 1: Desain Company Profile
   const comproItems = [
@@ -135,19 +139,51 @@
       closeModal();
     }
   }
+
+  onMount(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          isVisible = true;
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (sectionEl) {
+      observer.observe(sectionEl);
+    }
+
+    return () => {
+      if (sectionEl) {
+        observer.unobserve(sectionEl);
+      }
+    };
+  });
 </script>
 
 <svelte:window onkeydown={handleKeyDown} />
 
-<section id="portfolio" class="py-20 bg-[#0A0A0A] relative overflow-hidden">
+<section 
+  id="portfolio" 
+  bind:this={sectionEl}
+  class="py-20 bg-[#0A0A0A] relative overflow-hidden"
+>
   <div class="container mx-auto px-6 lg:px-16 relative z-10">
     <!-- Header -->
-    <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-8 text-white tracking-tight">
+    <h2 
+      class="text-4xl lg:text-5xl font-extrabold text-center mb-8 text-white tracking-tight transition-all duration-1000 ease-out transform
+      {isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}"
+    >
       Portofolio <span class="text-[#00D1B2]">Karya Kami</span>
     </h2>
 
     <!-- Tabs Navigation -->
-    <div class="flex justify-center gap-4 mb-16">
+    <div 
+      class="flex justify-center gap-4 mb-16 transition-all duration-1000 ease-out transform
+      {isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'}"
+      style="transition-delay: 150ms;"
+    >
       <button
         type="button"
         onclick={() => activeTab = 'compro'}
@@ -171,7 +207,11 @@
     </div>
 
     <!-- Portfolio Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div 
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-1000 ease-out transform
+      {isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}"
+      style="transition-delay: 300ms;"
+    >
       {#each displayedItems as item (item.id)}
         <button
           type="button"

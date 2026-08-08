@@ -1,7 +1,11 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import emblaCarouselSvelte from 'embla-carousel-svelte';
   import Autoplay from 'embla-carousel-autoplay';
   import { Quote, UserCircle } from '@lucide/svelte';
+
+  let isVisible = $state(false);
+  let sectionEl: HTMLElement | null = $state(null);
 
   const testimonials = [
     {
@@ -58,15 +62,49 @@
 
   let emblaOptions = { loop: true };
   let emblaPlugins = [Autoplay({ delay: 3000, stopOnInteraction: false })];
+
+  onMount(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          isVisible = true;
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (sectionEl) {
+      observer.observe(sectionEl);
+    }
+
+    return () => {
+      if (sectionEl) {
+        observer.unobserve(sectionEl);
+      }
+    };
+  });
 </script>
 
-<section id="testimonials" class="py-20 bg-[#0A0A0A] relative overflow-hidden">
+<section 
+  id="testimonials" 
+  bind:this={sectionEl}
+  class="py-20 bg-[#0A0A0A] relative overflow-hidden"
+>
   <div class="container mx-auto px-6 lg:px-16 relative z-10">
-    <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 text-white tracking-tight">
+    <!-- Header -->
+    <h2 
+      class="text-4xl lg:text-5xl font-extrabold text-center mb-16 text-white tracking-tight transition-all duration-1000 ease-out transform
+      {isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}"
+    >
       Apa Kata Klien Kami?
     </h2>
 
-    <div class="relative max-w-7xl mx-auto">
+    <!-- Carousel Container -->
+    <div 
+      class="relative max-w-7xl mx-auto transition-all duration-1000 ease-out transform
+      {isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'}"
+      style="transition-delay: 200ms;"
+    >
       <div
         class="overflow-hidden cursor-grab active:cursor-grabbing"
         use:emblaCarouselSvelte={{ options: emblaOptions, plugins: emblaPlugins }}

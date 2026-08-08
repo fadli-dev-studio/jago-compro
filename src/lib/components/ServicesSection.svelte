@@ -1,6 +1,10 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import { siteConfig } from '$lib/config/site';
   import { trackEvent } from '$lib/gtag';
+
+  let isVisible = $state(false);
+  let sectionEl: HTMLElement | null = $state(null);
 
   function handleServiceClick(serviceName: string) {
     trackEvent('click_whatsapp', {
@@ -10,12 +14,40 @@
       fbParams: { source: serviceName }
     });
   }
+
+  onMount(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          isVisible = true;
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (sectionEl) {
+      observer.observe(sectionEl);
+    }
+
+    return () => {
+      if (sectionEl) {
+        observer.unobserve(sectionEl);
+      }
+    };
+  });
 </script>
 
-<section id="layanan" class="py-20 bg-[#0A0A0A] relative overflow-hidden">
+<section 
+  id="layanan" 
+  bind:this={sectionEl}
+  class="py-20 bg-[#0A0A0A] relative overflow-hidden"
+>
   <div class="container mx-auto px-6 lg:px-16 relative z-10">
     <!-- Header -->
-    <div class="text-center mb-16">
+    <div 
+      class="text-center mb-16 transition-all duration-1000 ease-out transform
+      {isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}"
+    >
       <h2 class="text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight">Layanan Kami</h2>
       <p class="text-gray-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
         Bisnis yang profesional dibangun dari fondasi yang tepat! Legalitas, branding, dan kehadiran digital. Kami menghadirkan solusi terintegrasi untuk membantu bisnis Anda tampil lebih terpercaya dan siap berkembang.
@@ -30,7 +62,9 @@
         target="_blank"
         rel="noopener noreferrer"
         onclick={() => handleServiceClick('legalitas')}
-        class="flex items-center justify-center cursor-pointer"
+        class="flex items-center justify-center cursor-pointer transform transition-all duration-1000 ease-out
+        {isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'}"
+        style="transition-delay: 100ms;"
       >
         <img
           src="/services/LEGAL.webp"
@@ -47,7 +81,9 @@
         target="_blank"
         rel="noopener noreferrer"
         onclick={() => handleServiceClick('company_profile')}
-        class="flex items-center justify-center cursor-pointer"
+        class="flex items-center justify-center cursor-pointer transform transition-all duration-1000 ease-out
+        {isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'}"
+        style="transition-delay: 200ms;"
       >
         <img
           src="/services/COMPRO.webp"
@@ -64,7 +100,9 @@
         target="_blank"
         rel="noopener noreferrer"
         onclick={() => handleServiceClick('website')}
-        class="flex items-center justify-center cursor-pointer"
+        class="flex items-center justify-center cursor-pointer transform transition-all duration-1000 ease-out
+        {isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'}"
+        style="transition-delay: 300ms;"
       >
         <img
           src="/services/WEBSITE.webp"
@@ -77,13 +115,21 @@
     </div>
 
     <!-- Footer Text -->
-    <div class="text-center mb-12">
+    <div 
+      class="text-center mb-12 transition-all duration-1000 ease-out transform
+      {isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}"
+      style="transition-delay: 400ms;"
+    >
       <p class="text-white text-lg font-medium mb-2">Layanan di atas merupakan layanan satuan.</p>
       <p class="text-gray-300">Untuk paket lengkap atau kebutuhan khusus, silakan konsultasi melalui WhatsApp.</p>
     </div>
 
     <!-- Badges -->
-    <div class="flex flex-wrap justify-center gap-4 lg:gap-8">
+    <div 
+      class="flex flex-wrap justify-center gap-4 lg:gap-8 transition-all duration-1000 ease-out transform
+      {isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}"
+      style="transition-delay: 500ms;"
+    >
       <div class="hover-icon-badge flex items-center gap-2 bg-white/5 px-5 py-2.5 rounded-full border border-white/10">
         <span class="text-[#00D1B2]">★</span>
         <span class="text-white text-sm">Gratis Materi/Pengembangan Narasi</span>
