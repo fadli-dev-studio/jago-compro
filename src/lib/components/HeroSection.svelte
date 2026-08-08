@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
   import { siteConfig } from '$lib/config/site';
   import { trackEvent } from '$lib/gtag';
   import { Menu, X, Sparkles } from '@lucide/svelte';
@@ -165,7 +166,10 @@
 
   <!-- Mobile Menu Drawer -->
   {#if isMobileMenuOpen}
-    <div class="lg:hidden fixed inset-0 bg-[#0A0A0A]/95 z-40 flex flex-col items-center justify-center space-y-4 text-base overflow-y-auto py-8">
+    <div 
+      transition:fade={{ duration: 200 }}
+      class="lg:hidden fixed inset-0 bg-[#0A0A0A]/95 z-40 flex flex-col items-center justify-center space-y-4 text-base overflow-y-auto py-8"
+    >
       <a href="/" onclick={closeMobileMenu} class="nav-link font-semibold {activeSection === 'hero' ? 'text-[#00D1B2]' : 'text-white'}">Home</a>
       <a href="#why-choose-us" onclick={closeMobileMenu} class="nav-link font-semibold {activeSection === 'why-choose-us' ? 'text-[#00D1B2]' : 'text-white'}">Mengapa Kami</a>
       <a href="#layanan" onclick={closeMobileMenu} class="nav-link font-semibold {activeSection === 'layanan' ? 'text-[#00D1B2]' : 'text-white'}">Layanan</a>

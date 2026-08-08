@@ -180,14 +180,14 @@
 
     <!-- Tabs Navigation -->
     <div 
-      class="flex justify-center gap-4 mb-16 transition-all duration-1000 ease-out transform
+      class="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 sm:mb-16 transition-all duration-1000 ease-out transform
       {isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'}"
       style="transition-delay: 150ms;"
     >
       <button
         type="button"
         onclick={() => activeTab = 'compro'}
-        class="px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 border cursor-pointer
+        class="px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 border cursor-pointer
         {activeTab === 'compro' 
           ? 'bg-[#00D1B2] text-[#0A0A0A] border-[#00D1B2] shadow-[0_0_15px_rgba(0,209,178,0.25)]' 
           : 'bg-transparent text-white border-white/20 hover:border-white/55'}"
@@ -197,7 +197,7 @@
       <button
         type="button"
         onclick={() => activeTab = 'web'}
-        class="px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 border cursor-pointer
+        class="px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 border cursor-pointer
         {activeTab === 'web' 
           ? 'bg-[#00D1B2] text-[#0A0A0A] border-[#00D1B2] shadow-[0_0_15px_rgba(0,209,178,0.25)]' 
           : 'bg-transparent text-white border-white/20 hover:border-white/55'}"

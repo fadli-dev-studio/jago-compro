@@ -7,6 +7,11 @@
   let isVisible = $state(false);
   let sectionEl: HTMLElement | null = $state(null);
 
+  // State untuk kontrol navigasi Embla Carousel
+  let emblaApi = $state<any>(null);
+  let selectedIndex = $state(0);
+  let scrollSnaps = $state<number[]>([]);
+
   const testimonials = [
     {
       name: "Galih",
@@ -63,6 +68,15 @@
   let emblaOptions = { loop: true };
   let emblaPlugins = [Autoplay({ delay: 3000, stopOnInteraction: false })];
 
+  function onInit(event: CustomEvent) {
+    emblaApi = event.detail;
+    if (!emblaApi) return;
+    scrollSnaps = emblaApi.scrollSnapList();
+    emblaApi.on('select', () => {
+      selectedIndex = emblaApi.selectedScrollSnap();
+    });
+  }
+
   onMount(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -108,6 +122,7 @@
       <div
         class="overflow-hidden cursor-grab active:cursor-grabbing"
         use:emblaCarouselSvelte={{ options: emblaOptions, plugins: emblaPlugins }}
+        onembla={onInit}
       >
         <div class="flex -ml-4">
           {#each testimonials as testimonial}
@@ -133,6 +148,21 @@
           {/each}
         </div>
       </div>
+
+      <!-- Carousel Dots Navigation -->
+      {#if scrollSnaps.length > 1}
+        <div class="flex justify-center gap-2 mt-10">
+          {#each scrollSnaps as _, i}
+            <button
+              type="button"
+              onclick={() => emblaApi && emblaApi.scrollTo(i)}
+              class="h-2 rounded-full transition-all duration-300 cursor-pointer focus:outline-none
+              {selectedIndex === i ? 'w-6 bg-[#00D1B2]' : 'w-2 bg-white/20 hover:bg-white/40'}"
+              aria-label={`Buka testimoni slide ${i + 1}`}
+            ></button>
+          {/each}
+        </div>
+      {/if}
     </div>
   </div>
 </section>
