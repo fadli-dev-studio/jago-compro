@@ -24,13 +24,15 @@
     ],
     links: {
       layanan: [
-        { label: "Paket Harga", href: "#prices" },
+        { label: "Layanan Kami", href: "#layanan" },
         { label: "Portofolio", href: "#portfolio" },
-        { label: "Desain Express", href: "#hero" },
+        { label: "Klien Kami", href: "#clients" },
       ],
       perusahaan: [
-        { label: "Tentang Kami", href: "#features" },
+        { label: "Mengapa Kami", href: "#why-choose-us" },
         { label: "Testimoni", href: "#testimonials" },
+        { label: "Tim Kami", href: "#team" },
+        { label: "FAQ", href: "#faq" },
       ],
     },
   };
