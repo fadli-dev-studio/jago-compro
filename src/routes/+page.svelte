@@ -2,6 +2,7 @@
   import CanvasBackground from '$lib/components/CanvasBackground.svelte';
   import HeroSection from '$lib/components/HeroSection.svelte';
   import WhyChooseUsSection from '$lib/components/WhyChooseUsSection.svelte';
+  import StatsSection from '$lib/components/StatsSection.svelte';
   import ServicesSection from '$lib/components/ServicesSection.svelte';
   import TestimonialsSection from '$lib/components/TestimonialsSection.svelte';
   import TeamSection from '$lib/components/TeamSection.svelte';
@@ -14,6 +15,7 @@
 
 <HeroSection />
 <WhyChooseUsSection />
+<StatsSection />
 <ServicesSection />
 <ClientLogoSection />
 <TestimonialsSection />
