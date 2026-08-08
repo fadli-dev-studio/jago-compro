@@ -7,7 +7,7 @@
     {
       name: "Galih",
       company: "Pengusaha",
-      quote: "Pengerjaannya cepat, sesuai brief, desainnya modern, mewah dan sesuai dengan bisnis dan target marketnya. InsyaAllah langganan.",
+      quote: "Pengerjaannya cepat, sesuai brief, desainnya modern, mewah and sesuai dengan bisnis dan target marketnya. InsyaAllah langganan.",
     },
     {
       name: "Setiawan",
@@ -60,10 +60,10 @@
   let emblaPlugins = [Autoplay({ delay: 3000, stopOnInteraction: false })];
 </script>
 
-<section id="testimonials" class="py-20 bg-[#0f172a]/80">
-  <div class="container mx-auto px-6">
-    <h2 class="text-4xl font-bold text-center mb-12 text-white">
-      Apa Kata <span class="text-emerald-400">Klien Kami?</span>
+<section id="testimonials" class="py-20 bg-[#0A0A0A] relative overflow-hidden">
+  <div class="container mx-auto px-6 lg:px-16 relative z-10">
+    <h2 class="text-4xl lg:text-5xl font-extrabold text-center mb-16 text-white tracking-tight">
+      Apa Kata Klien Kami?
     </h2>
 
     <div class="relative max-w-7xl mx-auto">
@@ -74,20 +74,20 @@
         <div class="flex -ml-4">
           {#each testimonials as testimonial}
             <div class="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] min-w-0 pl-4">
-              <div class="h-full p-6 bg-slate-800/40 backdrop-blur-md border border-slate-700/50 rounded-2xl shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition-colors">
-                <div class="relative text-white p-2">
-                  <Quote size={48} class="absolute -top-2 -left-2 text-emerald-500/10 -z-0" />
-                  <p class="text-slate-200 italic relative z-10 leading-relaxed">
+              <div class="testimonial-card h-full p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl shadow-xl flex flex-col justify-between text-left cursor-pointer">
+                <div class="relative text-white">
+                  <Quote size={48} class="absolute -top-4 -left-4 text-white/5 -z-0" />
+                  <p class="text-gray-300 italic relative z-10 leading-relaxed text-sm sm:text-base">
                     &ldquo;{testimonial.quote}&rdquo;
                   </p>
                 </div>
-                <div class="border-t border-slate-700/50 pt-4 mt-6 flex items-center gap-4">
-                  <div class="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 flex-shrink-0">
-                    <UserCircle size={32} />
+                <div class="border-t border-white/10 pt-4 mt-6 flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-gray-300 flex-shrink-0">
+                    <UserCircle size={32} class="text-gray-400" />
                   </div>
                   <div>
                     <h4 class="font-bold text-white text-base">{testimonial.name}</h4>
-                    <p class="text-sm text-emerald-400 font-medium">{testimonial.company}</p>
+                    <p class="text-sm text-gray-400 font-medium">{testimonial.company}</p>
                   </div>
                 </div>
               </div>
@@ -98,3 +98,16 @@
     </div>
   </div>
 </section>
+
+<style>
+  .testimonial-card {
+    transition: all 400ms ease-out;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 35px -10px rgba(255, 255, 255, 0.15);
+  }
+</style>
