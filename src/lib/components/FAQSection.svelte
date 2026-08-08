@@ -72,9 +72,6 @@
   bind:this={sectionEl}
   class="py-20 bg-[#0A0A0A] relative overflow-hidden"
 >
-  <!-- Decorative background glow -->
-  <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#00D1B2]/5 rounded-full blur-[130px] pointer-events-none z-0"></div>
-
   <div class="container mx-auto px-6 lg:px-16 relative z-10">
     <!-- Header -->
     <div 
