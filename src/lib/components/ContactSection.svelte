@@ -1,0 +1,152 @@
+<script lang="ts">
+  import { siteConfig } from '$lib/config/site';
+  import { trackEvent } from '$lib/gtag';
+  import { MessageCircle } from '@lucide/svelte';
+
+  const currentYear = new Date().getFullYear();
+
+  const CONTACT_PARAMS = {
+    whatsapp: {
+      href: siteConfig.whatsappUrl,
+      label: "Hubungi via WhatsApp",
+    },
+    socials: [
+      {
+        href: siteConfig.socials.facebook,
+        label: "Facebook JagoCompro",
+        type: "facebook"
+      },
+      {
+        href: siteConfig.socials.instagram,
+        label: "Instagram JagoCompro",
+        type: "instagram"
+      },
+    ],
+    links: {
+      layanan: [
+        { label: "Paket Harga", href: "#prices" },
+        { label: "Portofolio", href: "#portfolio" },
+        { label: "Desain Express", href: "#hero" },
+      ],
+      perusahaan: [
+        { label: "Tentang Kami", href: "#features" },
+        { label: "Testimoni", href: "#testimonials" },
+      ],
+    },
+  };
+
+  function handleWhatsappClick() {
+    trackEvent("click_whatsapp", {
+      category: "engagement",
+      label: "footer_whatsapp_button",
+      fbEventName: "Lead",
+      fbParams: { source: "footer" },
+    });
+  }
+
+  function handleSocialClick(name: string) {
+    trackEvent("click_social_media", {
+      category: "engagement",
+      label: `footer_${name}_button`,
+      fbEventName: "Lead",
+      fbParams: { source: "footer" },
+    });
+  }
+</script>
+
+<footer id="contact" class="bg-slate-950 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- CTA Section Card -->
+    <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-8 mb-12 flex flex-col md:flex-row justify-between items-center gap-6 shadow-xl">
+      <div>
+        <h3 class="text-2xl font-bold text-emerald-400">Tertarik Bekerja Sama?</h3>
+        <p class="mt-2 text-slate-300">
+          Konsultasikan kebutuhan desain company profile Anda bersama tim profesional kami.
+        </p>
+      </div>
+      <a
+        href={CONTACT_PARAMS.whatsapp.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick={handleWhatsappClick}
+        title={CONTACT_PARAMS.whatsapp.label}
+        class="inline-flex items-center gap-2 border-2 border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-slate-950 font-bold px-6 py-3 rounded-xl transition-all shadow-lg hover:shadow-emerald-400/20"
+      >
+        <MessageCircle size={20} class="animate-pulse" />
+        <span>{CONTACT_PARAMS.whatsapp.label}</span>
+      </a>
+    </div>
+
+    <!-- Footer Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 py-8">
+      <!-- Logo & Description -->
+      <div class="col-span-2 lg:col-span-2">
+        <h4 class="text-xl font-bold tracking-wide">
+          Jago-<span class="text-emerald-400">COMPRO</span>
+        </h4>
+        <p class="mt-4 text-sm font-semibold text-slate-300">CV. Langit Karya Tadulako</p>
+        <p class="mt-1 text-sm text-slate-400 max-w-sm">Membantu bisnis Anda tampil lebih profesional.</p>
+      </div>
+
+      <!-- Layanan -->
+      <div>
+        <h4 class="font-bold text-white mb-4 text-base">Layanan</h4>
+        <ul class="space-y-2.5 text-sm text-slate-300">
+          {#each CONTACT_PARAMS.links.layanan as link}
+            <li>
+              <a href={link.href} class="hover:text-emerald-400 transition-colors">
+                {link.label}
+              </a>
+            </li>
+          {/each}
+        </ul>
+      </div>
+
+      <!-- Perusahaan -->
+      <div>
+        <h4 class="font-bold text-white mb-4 text-base">Perusahaan</h4>
+        <ul class="space-y-2.5 text-sm text-slate-300">
+          {#each CONTACT_PARAMS.links.perusahaan as link}
+            <li>
+              <a href={link.href} class="hover:text-emerald-400 transition-colors">
+                {link.label}
+              </a>
+            </li>
+          {/each}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="mt-8 pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-sm text-slate-400 text-center sm:text-left">
+        &copy; {currentYear} <strong class="text-white">Jago-COMPRO</strong>. Semua Hak Cipta Dilindungi.
+      </p>
+      <div class="flex gap-4">
+        {#each CONTACT_PARAMS.socials as social}
+          <a
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick={() => handleSocialClick(social.label)}
+            aria-label={social.label}
+            title={social.label}
+            class="text-slate-400 hover:text-emerald-400 transition-colors p-2 rounded-lg hover:bg-slate-800"
+          >
+            {#if social.type === 'facebook'}
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            {:else if social.type === 'instagram'}
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            {/if}
+          </a>
+        {/each}
+      </div>
+    </div>
+  </div>
+</footer>
