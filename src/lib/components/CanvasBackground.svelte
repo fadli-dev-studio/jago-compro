@@ -50,8 +50,8 @@
           i = mod(i, 289.0);
           vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))
           + i.x + vec3(0.0, i1.x, 1.0 ));
-          vec3 m = max(0.5 - vec4(dot(x0,x0), dot(x12.xy,x12.xy),
-            dot(x12.zw,x12.zw), 0.0), 0.0);
+          vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy),
+            dot(x12.zw,x12.zw)), 0.0);
           m = m*m ;
           m = m*m ;
           vec3 x = 2.0 * fract(p * C.wwww) - 1.0;
@@ -107,11 +107,11 @@
       const mesh = new THREE.Mesh(geometry, material);
       scene.add(mesh);
 
-      const clock = new THREE.Clock();
-
+      const startTime = performance.now();
+ 
       const animate = () => {
         animationFrameId = requestAnimationFrame(animate);
-        uniforms.u_time.value = clock.getElapsedTime();
+        uniforms.u_time.value = (performance.now() - startTime) * 0.001;
         renderer.render(scene, camera);
       };
 
