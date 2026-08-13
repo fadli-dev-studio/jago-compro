@@ -162,7 +162,7 @@
   }
 </script>
 
-<section id="hero" class="hero-section min-h-screen lg:h-screen lg:max-h-[940px] lg:min-h-[640px] relative flex flex-col justify-between pt-20 lg:pt-24 pb-6 lg:pb-4 overflow-hidden">
+<section id="hero" class="hero-section min-h-screen lg:h-screen lg:max-h-235 lg:min-h-160 relative flex flex-col justify-between pt-20 lg:pt-24 pb-6 lg:pb-4 overflow-hidden">
   <!-- Navigation Header -->
   <header class="fixed top-0 left-0 right-0 w-full z-50 bg-[#0A0A0A]/70 backdrop-blur-md border-b border-white/5 py-4 transition-all duration-300">
     <div class="container mx-auto px-6 lg:px-16 flex items-center justify-between">
@@ -244,11 +244,11 @@
     <div class="w-full lg:w-1/2 flex flex-col items-start justify-center z-20">
       
       <!-- Target Badge Slot with Tagline & 1.2s Accordion Collapse Animation -->
-      <div class="relative mb-4 lg:mb-5 min-h-[40px] flex items-center justify-center">
+      <div class="relative mb-4 lg:mb-5 min-h-10 flex items-center justify-center">
         <div
           bind:this={badgeEl}
           style={transformStyle}
-          class="bg-[#00D1B2] rounded-full px-4 sm:px-5 py-1.5 sm:py-2 flex items-center justify-center text-center gap-2 shadow-lg shadow-[#00D1B2]/40 transition-all duration-[1200ms] cubic-bezier(0.16, 1, 0.3, 1) z-30 pointer-events-auto origin-center max-w-[95vw] overflow-hidden"
+          class="bg-[#00D1B2] rounded-full px-4 sm:px-5 py-1.5 sm:py-2 flex items-center justify-center text-center gap-2 shadow-lg shadow-[#00D1B2]/40 transition-all duration-1200 cubic-bezier(0.16, 1, 0.3, 1) z-30 pointer-events-auto origin-center max-w-[95vw] overflow-hidden"
         >
           <!-- Modern WOW Sparkles Icon -->
           <div class="p-1 bg-[#0A0A0A]/15 rounded-full flex items-center justify-center shrink-0 animate-wow-pop">
@@ -262,8 +262,8 @@
 
           <!-- Tagline Suffix with 1.2s Accordion Collapse Out to Left -->
           <div
-            class="transition-all duration-[1200ms] cubic-bezier(0.16, 1, 0.3, 1) overflow-hidden flex items-center origin-left
-            {isAccordionOut ? 'max-w-0 opacity-0 scale-90 -ml-2' : 'max-w-[360px] opacity-100 scale-100 ml-0'}"
+            class="transition-all duration-1200 cubic-bezier(0.16, 1, 0.3, 1) overflow-hidden flex items-center origin-left
+            {isAccordionOut ? 'max-w-0 opacity-0 scale-90 -ml-2' : 'max-w-90 opacity-100 scale-100 ml-0'}"
           >
             <span class="text-[#0A0A0A] font-bold text-xs sm:text-sm md:text-base whitespace-nowrap">
               {taglineText}
@@ -313,7 +313,7 @@
       class="w-full lg:w-1/2 mt-8 lg:mt-0 flex justify-center lg:justify-end relative z-10 pointer-events-none transition-all duration-800 ease-out transform {isContentRevealed ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}"
     >
       <!-- Floating Mockup Composition -->
-      <div class="relative w-full max-w-[480px] lg:max-w-[560px] xl:max-w-[620px] animate-float">
+      <div class="relative w-full max-w-120 lg:max-w-140 xl:max-w-155 animate-float">
         <img
           src="/KV.webp"
           alt="Mockup Company Profile, Website, dan Dokumen Legalitas"
@@ -335,14 +335,14 @@
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         <!-- Stat 1: Klien -->
         <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
-          <span class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-[65px] sm:min-w-[75px]">
+          <span class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-16.25 sm:min-w-18.75">
             {clientCount}+
           </span>
           <div class="flex flex-col">
             <span class="text-white font-bold text-xs uppercase tracking-wider">
               Klien Korporat & UMKM
             </span>
-            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-[180px] mx-auto sm:mx-0">
+            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-45 mx-auto sm:mx-0">
               Telah mempercayakan legalitas, compro, dan website mereka.
             </span>
           </div>
@@ -350,14 +350,14 @@
 
         <!-- Stat 2: Proyek Selesai -->
         <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
-          <span class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-[65px] sm:min-w-[75px]">
+          <span class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-16.25 sm:min-w-18.75">
             {projectCount}+
           </span>
           <div class="flex flex-col">
             <span class="text-white font-bold text-xs uppercase tracking-wider">
               Proyek Selesai
             </span>
-            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-[180px] mx-auto sm:mx-0">
+            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-45 mx-auto sm:mx-0">
               Desain company profile cetak, PDF, dan website corporate.
             </span>
           </div>
@@ -365,14 +365,14 @@
 
         <!-- Stat 3: Desain Orisinal -->
         <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
-          <span class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-[65px] sm:min-w-[75px]">
+          <span class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-16.25 sm:min-w-18.75">
             {originalCount}%
           </span>
           <div class="flex flex-col">
             <span class="text-white font-bold text-xs uppercase tracking-wider">
               Desain Orisinal
             </span>
-            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-[180px] mx-auto sm:mx-0">
+            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-45 mx-auto sm:mx-0">
               Dibuat khusus dari awal sesuai brief, tanpa template.
             </span>
           </div>
@@ -380,14 +380,14 @@
 
         <!-- Stat 4: Konsultasi Responsif -->
         <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
-          <span class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-[65px] sm:min-w-[75px]">
+          <span class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-16.25 sm:min-w-18.75">
             {supportCount}/7
           </span>
           <div class="flex flex-col">
             <span class="text-white font-bold text-xs uppercase tracking-wider">
               Konsultasi Responsif
             </span>
-            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-[180px] mx-auto sm:mx-0">
+            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-45 mx-auto sm:mx-0">
               Tim support kami siap membantu kebutuhan bisnis Anda.
             </span>
           </div>
