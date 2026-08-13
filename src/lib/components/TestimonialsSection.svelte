@@ -129,13 +129,13 @@
             <div class="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] min-w-0 pl-4">
               <div class="testimonial-card h-full p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl shadow-xl flex flex-col justify-between text-left cursor-pointer">
                 <div class="relative text-white">
-                  <Quote size={48} class="absolute -top-4 -left-4 text-white/5 -z-0" />
+                  <Quote size={48} class="absolute -top-4 -left-4 text-white/5 z-0" />
                   <p class="text-gray-300 italic relative z-10 leading-relaxed text-sm sm:text-base">
                     &ldquo;{testimonial.quote}&rdquo;
                   </p>
                 </div>
                 <div class="border-t border-white/10 pt-4 mt-6 flex items-center gap-4">
-                  <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-gray-300 flex-shrink-0">
+                  <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-gray-300 shrink-0">
                     <UserCircle size={32} class="text-gray-400" />
                   </div>
                   <div>

@@ -257,7 +257,7 @@
     </div>
 
     <!-- FAQ Accordion List -->
-    <div class="max-w-3xl mx-auto flex flex-col gap-4 min-h-[300px]">
+    <div class="max-w-3xl mx-auto flex flex-col gap-4 min-h-75">
       {#if filteredFaqs.length === 0}
         <div class="text-center py-12 bg-white/5 rounded-2xl border border-white/10">
           <p class="text-gray-400 text-base mb-2">Tidak ada pertanyaan yang sesuai dengan kata kunci "{searchQuery}".</p>
@@ -273,7 +273,7 @@
         {#each filteredFaqs as faq, index}
           <div 
             class="border border-white/10 rounded-2xl bg-white/5 overflow-hidden transition-all duration-300 hover:border-white/20
-            {openIndex === index ? 'border-[#00D1B2]/40 bg-white/[0.08] shadow-[0_0_15px_rgba(0,209,178,0.05)]' : ''}"
+            {openIndex === index ? 'border-[#00D1B2]/40 bg-white/8 shadow-[0_0_15px_rgba(0,209,178,0.05)]' : ''}"
           >
             <!-- Trigger Header -->
             <button
@@ -291,7 +291,7 @@
                   {faq.q}
                 </h3>
               </div>
-              <span class="text-white flex-shrink-0 bg-white/10 p-2 rounded-full transition-all duration-300 ml-2
+              <span class="text-white shrink-0 bg-white/10 p-2 rounded-full transition-all duration-300 ml-2
                 {openIndex === index ? 'bg-[#00D1B2] text-[#0A0A0A] rotate-180' : ''}"
               >
                 {#if openIndex === index}

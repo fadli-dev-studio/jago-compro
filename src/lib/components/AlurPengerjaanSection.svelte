@@ -127,7 +127,7 @@
           <div 
             role="region"
             aria-label={`Langkah ${step.number}: ${step.title}`}
-            class="relative group bg-white/[0.03] hover:bg-white/[0.08] border rounded-xl p-4.5 transition-all duration-300 flex flex-col justify-between cursor-pointer
+            class="relative group bg-white/3 hover:bg-white/8 border rounded-xl p-4.5 transition-all duration-300 flex flex-col justify-between cursor-pointer
             {isHovered ? 'border-[#00D1B2] shadow-[0_0_20px_rgba(0,209,178,0.15)] -translate-y-1' : 'border-white/10 hover:border-[#00D1B2]/50'}"
             onmouseenter={() => hoveredStep = globalIdx}
             onmouseleave={() => hoveredStep = null}
@@ -196,7 +196,7 @@
           <div 
             role="region"
             aria-label={`Langkah ${step.number}: ${step.title}`}
-            class="relative group bg-white/[0.03] hover:bg-white/[0.08] border rounded-xl p-4.5 transition-all duration-300 flex flex-col justify-between cursor-pointer
+            class="relative group bg-white/3 hover:bg-white/8 border rounded-xl p-4.5 transition-all duration-300 flex flex-col justify-between cursor-pointer
             {isHovered ? 'border-[#00D1B2] shadow-[0_0_20px_rgba(0,209,178,0.15)] -translate-y-1' : 'border-white/10 hover:border-[#00D1B2]/50'}"
             onmouseenter={() => hoveredStep = globalIdx}
             onmouseleave={() => hoveredStep = null}
@@ -244,11 +244,11 @@
 
     <!-- Inline Catatan Ringkas -->
     <div 
-      class="max-w-3xl mx-auto bg-white/[0.03] border border-white/10 rounded-xl px-5 py-3.5 flex items-center justify-center gap-3 text-center sm:text-left transition-all duration-1000 ease-out transform
+      class="max-w-3xl mx-auto bg-white/3 border border-white/10 rounded-xl px-5 py-3.5 flex items-center justify-center gap-3 text-center sm:text-left transition-all duration-1000 ease-out transform
       {isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}"
       style="transition-delay: 300ms;"
     >
-      <Info size={18} class="text-[#00D1B2] flex-shrink-0" />
+      <Info size={18} class="text-[#00D1B2] shrink-0" />
       <p class="text-gray-300 text-xs sm:text-sm">
         <strong class="text-white font-semibold">Catatan:</strong> Timeline pengerjaan menyesuaikan kelengkapan data & feedback dari klien.
       </p>
@@ -257,6 +257,6 @@
 
   <!-- Background Accent Blobs -->
   <div class="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#00D1B2]/5 rounded-full blur-[140px]"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-75 bg-[#00D1B2]/5 rounded-full blur-[140px]"></div>
   </div>
 </section>

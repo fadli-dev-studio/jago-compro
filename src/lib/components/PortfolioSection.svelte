@@ -216,7 +216,7 @@
         <button
           type="button"
           onclick={() => openModal(item.src, `${item.title} - ${item.category}`, ('url' in item ? (item as { url?: string }).url || null : null))}
-          class="group relative w-full h-[300px] overflow-hidden rounded-3xl border border-white/10 bg-white/5 text-left transition-all duration-300 hover:scale-[1.02] hover:border-[#00D1B2]/50 shadow-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#00D1B2]"
+          class="group relative w-full h-75 overflow-hidden rounded-3xl border border-white/10 bg-white/5 text-left transition-all duration-300 hover:scale-[1.02] hover:border-[#00D1B2]/50 shadow-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#00D1B2]"
         >
           <img
             src={item.src}
@@ -224,7 +224,7 @@
             loading="lazy"
             class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex items-end justify-between p-6">
+          <div class="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent flex items-end justify-between p-6">
             <div>
               <p class="text-sm text-[#00D1B2] font-bold mb-1">{item.title}</p>
               <p class="text-xs text-gray-300 font-medium">{item.category}</p>
@@ -253,7 +253,7 @@
         type="button"
         onclick={closeModal}
         aria-label="Tutup modal"
-        class="fixed top-6 right-6 z-[60] text-white/70 hover:text-white bg-black/40 hover:bg-white/10 backdrop-blur-sm p-3 rounded-full transition-all duration-200"
+        class="fixed top-6 right-6 z-60 text-white/70 hover:text-white bg-black/40 hover:bg-white/10 backdrop-blur-sm p-3 rounded-full transition-all duration-200"
       >
         <X size={28} />
       </button>
