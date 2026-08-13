@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { base } from '$app/paths';
 
   let isVisible = $state(false);
   let sectionEl: HTMLElement | null = $state(null);
@@ -91,7 +92,7 @@
           bind:this={card1El}
           onmousemove={(e) => handleMouseMove(e, card1El)}
           onmouseleave={() => handleMouseLeave(card1El)}
-          src="/why-choose-us/Group 1.webp"
+          src="{base}/why-choose-us/group-1.webp"
           alt="Keunggulan Jago Compro - 1"
           loading="lazy"
           class="w-full h-auto object-contain cursor-pointer transition-all duration-300 ease-out"
@@ -109,7 +110,7 @@
           bind:this={card2El}
           onmousemove={(e) => handleMouseMove(e, card2El)}
           onmouseleave={() => handleMouseLeave(card2El)}
-          src="/why-choose-us/Group 1-1.webp"
+          src="{base}/why-choose-us/group-1-1.webp"
           alt="Keunggulan Jago Compro - 2"
           loading="lazy"
           class="w-full h-auto object-contain cursor-pointer transition-all duration-300 ease-out"
@@ -127,7 +128,7 @@
           bind:this={card3El}
           onmousemove={(e) => handleMouseMove(e, card3El)}
           onmouseleave={() => handleMouseLeave(card3El)}
-          src="/why-choose-us/Group 1-2.webp"
+          src="{base}/why-choose-us/group-1-2.webp"
           alt="Keunggulan Jago Compro - 3"
           loading="lazy"
           class="w-full h-auto object-contain cursor-pointer transition-all duration-300 ease-out"

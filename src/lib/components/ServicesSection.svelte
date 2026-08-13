@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { base } from '$app/paths';
   import { siteConfig } from '$lib/config/site';
   import { trackEvent } from '$lib/gtag';
 
@@ -67,7 +68,7 @@
         style="transition-delay: 100ms;"
       >
         <img
-          src="/services/LEGAL.webp"
+          src="{base}/services/LEGAL.webp"
           alt="Layanan Legalitas"
           loading="lazy"
           class="w-full h-auto object-contain transition-transform duration-300 hover:scale-[1.03]"
@@ -86,7 +87,7 @@
         style="transition-delay: 200ms;"
       >
         <img
-          src="/services/COMPRO.webp"
+          src="{base}/services/COMPRO.webp"
           alt="Layanan Company Profile"
           loading="lazy"
           class="w-full h-auto object-contain transition-transform duration-300 hover:scale-[1.03]"
@@ -105,7 +106,7 @@
         style="transition-delay: 300ms;"
       >
         <img
-          src="/services/WEBSITE.webp"
+          src="{base}/services/WEBSITE.webp"
           alt="Layanan Website"
           loading="lazy"
           class="w-full h-auto object-contain transition-transform duration-300 hover:scale-[1.03]"

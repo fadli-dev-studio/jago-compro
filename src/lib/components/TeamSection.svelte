@@ -1,11 +1,12 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { base } from '$app/paths';
 
   let isVisible = $state(false);
   let sectionEl: HTMLElement | null = $state(null);
 
   // Pisahkan Hafid (sebelah kiri) dan anggota tim lainnya (sebelah kanan)
-  const otherTeam = [
+  const rawOtherTeam = [
     { name: "fadli", img: "/team/fadli.webp" },
     { name: "ahmad", img: "/team/ahmad.webp" },
     { name: "arief", img: "/team/arief.webp" },
@@ -13,6 +14,8 @@
     { name: "dira", img: "/team/dira.webp" },
     { name: "rizky", img: "/team/rizky.webp" }
   ];
+
+  const otherTeam = rawOtherTeam.map(member => ({ ...member, img: `${base}${member.img}` }));
 
   onMount(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -67,7 +70,7 @@
         style="transition-delay: 100ms;"
       >
         <img
-          src="/team/hafid.webp"
+          src="{base}/team/hafid.webp"
           alt="Featured Tim - Hafid"
           loading="lazy"
           class="team-img w-full max-w-[340px] lg:max-w-none h-auto object-contain cursor-pointer rounded-2xl"

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { base } from '$app/paths';
   import { Eye, X } from '@lucide/svelte';
   import { fade, scale } from 'svelte/transition';
 
@@ -7,7 +8,7 @@
   let sectionEl: HTMLElement | null = $state(null);
 
   // Kategori 1: Desain Company Profile
-  const comproItems = [
+  const rawComproItems = [
     {
       id: 1,
       src: "/portfolio/1 (1).webp",
@@ -60,7 +61,7 @@
   ];
 
   // Kategori 2: Website Corporate (Data Riil & Screenshot Website Klien)
-  const webItems = [
+  const rawWebItems = [
     {
       id: 10,
       src: "/portfolio/lpk_momotaro.webp",
@@ -111,6 +112,9 @@
       url: "https://litatourinternational.com"
     }
   ];
+
+  const comproItems = rawComproItems.map(item => ({ ...item, src: `${base}${item.src}` }));
+  const webItems = rawWebItems.map(item => ({ ...item, src: `${base}${item.src}` }));
 
   // State untuk tab aktif (compro atau web)
   let activeTab = $state<'compro' | 'web'>('compro');

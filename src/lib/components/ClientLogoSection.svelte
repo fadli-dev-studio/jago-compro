@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { base } from '$app/paths';
 
   let isVisible = $state(false);
   let sectionEl: HTMLElement | null = $state(null);
@@ -28,7 +29,7 @@
   ];
 
   // Map ke path direktori statis dengan URL encoding yang aman
-  const allLogos = rawLogos.map(name => `/client-logo/${encodeURIComponent(name)}`);
+  const allLogos = rawLogos.map(name => `${base}/client-logo/${encodeURIComponent(name)}`);
 
   // Bagi rata menjadi 3 baris
   const row1 = allLogos.slice(0, 18);
@@ -73,7 +74,7 @@
         {isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'}"
       >
         <img
-          src="/client_appreciation.webp"
+          src="{base}/client_appreciation.webp"
           alt="Client Appreciation Layout"
           loading="lazy"
           class="w-full h-auto max-w-[340px] lg:max-w-none object-contain rounded-3xl shadow-2xl border border-white/10"

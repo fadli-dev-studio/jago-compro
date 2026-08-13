@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
+  import { base } from '$app/paths';
   import { siteConfig } from '$lib/config/site';
   import { trackEvent } from '$lib/gtag';
   import { Menu, X, Sparkles } from '@lucide/svelte';
@@ -315,7 +316,7 @@
       <!-- Floating Mockup Composition -->
       <div class="relative w-full max-w-120 lg:max-w-140 xl:max-w-155 animate-float">
         <img
-          src="/KV.webp"
+          src="{base}/KV.webp"
           alt="Mockup Company Profile, Website, dan Dokumen Legalitas"
           loading="lazy"
           class="w-full h-auto object-contain"
@@ -397,7 +398,7 @@
   </div>
 
   <!-- Background Image -->
-  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 pointer-events-none z-0" style="background-image: url('/background.webp');"></div>
+  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 pointer-events-none z-0" style="background-image: url('{base}/background.webp');"></div>
 
   <!-- Background overlays -->
   <div class="absolute inset-0 bg-linear-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent pointer-events-none z-0 lg:hidden"></div>
