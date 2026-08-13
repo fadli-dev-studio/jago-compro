@@ -7,12 +7,9 @@ export const siteConfig = {
     { label: "Home", href: "#" },
     { label: "Mengapa Kami", href: "#why-choose-us" },
     { label: "Layanan", href: "#layanan" },
-    { label: "Klien", href: "#clients" },
-    { label: "Testimoni", href: "#testimonials" },
-    { label: "Tim Kami", href: "#team" },
+    { label: "Alur Kerja", href: "#alur-pengerjaan" },
     { label: "Portofolio", href: "#portfolio" },
     { label: "FAQ", href: "#faq" },
-    { label: "Kontak", href: "#contact" },
   ],
   socials: {
     facebook: "https://web.facebook.com/people/Jago-Compro/61567172740267/?_rdc=1&_rdr",

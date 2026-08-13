@@ -162,27 +162,36 @@
   }
 </script>
 
-<section id="hero" class="hero-section min-h-screen relative flex flex-col pt-24 lg:pt-28 pb-20 lg:pb-0 overflow-hidden">
+<section id="hero" class="hero-section min-h-screen lg:h-screen lg:max-h-[940px] lg:min-h-[640px] relative flex flex-col justify-between pt-20 lg:pt-24 pb-6 lg:pb-4 overflow-hidden">
   <!-- Navigation Header -->
   <header class="fixed top-0 left-0 right-0 w-full z-50 bg-[#0A0A0A]/70 backdrop-blur-md border-b border-white/5 py-4 transition-all duration-300">
     <div class="container mx-auto px-6 lg:px-16 flex items-center justify-between">
       <!-- Logo Area -->
       <a href="/" class="flex items-center gap-2 z-50">
-        <span class="text-3xl font-extrabold tracking-tight text-[#00D1B2]">Jago</span>
-        <span class="text-3xl font-bold tracking-tight text-white">COMPRO</span>
+        <span class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#00D1B2]">Jago</span>
+        <span class="text-2xl sm:text-3xl font-bold tracking-tight text-white">COMPRO</span>
       </a>
 
-      <!-- Desktop Menu -->
+      <!-- Desktop Menu (Compact 6 items + CTA) -->
       <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
-        <a href="/" class="nav-link font-medium inline-block {activeSection === 'hero' ? 'text-[#00D1B2] text-glow' : 'text-white'}">Home</a>
-        <a href="#why-choose-us" class="nav-link font-medium inline-block {activeSection === 'why-choose-us' ? 'text-[#00D1B2] text-glow' : 'text-white'}">Mengapa Kami</a>
-        <a href="#layanan" class="nav-link font-medium inline-block {activeSection === 'layanan' ? 'text-[#00D1B2] text-glow' : 'text-white'}">Layanan</a>
-        <a href="#clients" class="nav-link font-medium inline-block {activeSection === 'clients' ? 'text-[#00D1B2] text-glow' : 'text-white'}">Klien</a>
-        <a href="#testimonials" class="nav-link font-medium inline-block {activeSection === 'testimonials' ? 'text-[#00D1B2] text-glow' : 'text-white'}">Testimoni</a>
-        <a href="#team" class="nav-link font-medium inline-block {activeSection === 'team' ? 'text-[#00D1B2] text-glow' : 'text-white'}">Tim Kami</a>
-        <a href="#portfolio" class="nav-link font-medium inline-block {activeSection === 'portfolio' ? 'text-[#00D1B2] text-glow' : 'text-white'}">Portofolio</a>
-        <a href="#faq" class="nav-link font-medium inline-block {activeSection === 'faq' ? 'text-[#00D1B2] text-glow' : 'text-white'}">FAQ</a>
-        <a href="#contact" class="nav-link font-medium inline-block {activeSection === 'contact' ? 'text-[#00D1B2] text-glow' : 'text-white'}">Kontak</a>
+        {#each siteConfig.navItems as item}
+          <a 
+            href={item.href} 
+            class="nav-link font-medium inline-block text-sm xl:text-base transition-colors duration-200
+            {activeSection === (item.href === '#' ? 'hero' : item.href.replace('#', '')) ? 'text-[#00D1B2] font-bold text-glow' : 'text-gray-200 hover:text-[#00D1B2]'}"
+          >
+            {item.label}
+          </a>
+        {/each}
+        <a
+          href={siteConfig.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onclick={handleCtaClick}
+          class="bg-[#00D1B2]/10 hover:bg-[#00D1B2] text-[#00D1B2] hover:text-[#0A0A0A] border border-[#00D1B2]/40 font-bold text-xs xl:text-sm px-4 py-1.5 rounded-full transition-all duration-200 ml-2"
+        >
+          Konsultasi
+        </a>
       </nav>
 
       <!-- Mobile Menu Button (Hamburger) -->
@@ -193,9 +202,9 @@
         class="lg:hidden text-white focus:outline-none z-50 p-2 rounded-md hover:bg-white/10"
       >
         {#if isMobileMenuOpen}
-          <X size={32} />
+          <X size={28} />
         {:else}
-          <Menu size={32} />
+          <Menu size={28} />
         {/if}
       </button>
     </div>
@@ -205,23 +214,23 @@
   {#if isMobileMenuOpen}
     <div 
       transition:fade={{ duration: 200 }}
-      class="lg:hidden fixed inset-0 bg-[#0A0A0A]/95 z-40 flex flex-col items-center justify-center space-y-4 text-base overflow-y-auto py-8"
+      class="lg:hidden fixed inset-0 bg-[#0A0A0A]/95 z-40 flex flex-col items-center justify-center space-y-5 text-base overflow-y-auto py-8"
     >
-      <a href="/" onclick={closeMobileMenu} class="nav-link font-semibold {activeSection === 'hero' ? 'text-[#00D1B2]' : 'text-white'}">Home</a>
-      <a href="#why-choose-us" onclick={closeMobileMenu} class="nav-link font-semibold {activeSection === 'why-choose-us' ? 'text-[#00D1B2]' : 'text-white'}">Mengapa Kami</a>
-      <a href="#layanan" onclick={closeMobileMenu} class="nav-link font-semibold {activeSection === 'layanan' ? 'text-[#00D1B2]' : 'text-white'}">Layanan</a>
-      <a href="#clients" onclick={closeMobileMenu} class="nav-link font-semibold {activeSection === 'clients' ? 'text-[#00D1B2]' : 'text-white'}">Klien</a>
-      <a href="#testimonials" onclick={closeMobileMenu} class="nav-link font-semibold {activeSection === 'testimonials' ? 'text-[#00D1B2]' : 'text-white'}">Testimoni</a>
-      <a href="#team" onclick={closeMobileMenu} class="nav-link font-semibold {activeSection === 'team' ? 'text-[#00D1B2]' : 'text-white'}">Tim Kami</a>
-      <a href="#portfolio" onclick={closeMobileMenu} class="nav-link font-semibold {activeSection === 'portfolio' ? 'text-[#00D1B2]' : 'text-white'}">Portofolio</a>
-      <a href="#faq" onclick={closeMobileMenu} class="nav-link font-semibold {activeSection === 'faq' ? 'text-[#00D1B2]' : 'text-white'}">FAQ</a>
-      <a href="#contact" onclick={closeMobileMenu} class="nav-link font-semibold {activeSection === 'contact' ? 'text-[#00D1B2]' : 'text-white'}">Kontak</a>
+      {#each siteConfig.navItems as item}
+        <a 
+          href={item.href} 
+          onclick={closeMobileMenu} 
+          class="nav-link font-semibold {activeSection === (item.href === '#' ? 'hero' : item.href.replace('#', '')) ? 'text-[#00D1B2]' : 'text-white'}"
+        >
+          {item.label}
+        </a>
+      {/each}
       <a
         href={siteConfig.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         onclick={() => { handleCtaClick(); closeMobileMenu(); }}
-        class="btn-glow bg-[#00D1B2] text-[#0A0A0A] font-bold px-8 py-3 rounded-full mt-2"
+        class="btn-glow bg-[#00D1B2] text-[#0A0A0A] font-bold px-8 py-3 rounded-full mt-3"
       >
         Konsultasi Sekarang!
       </a>
@@ -229,25 +238,25 @@
   {/if}
 
   <!-- Hero Content Container -->
-  <main class="container mx-auto px-6 lg:px-16 flex-grow flex flex-col lg:flex-row items-center relative z-10 mt-6 lg:mt-0">
+  <main class="container mx-auto px-6 lg:px-16 flex-grow flex flex-col lg:flex-row items-center justify-between relative z-10 my-auto py-4">
     
     <!-- Left Column (Text & Badge) -->
-    <div class="w-full lg:w-1/2 flex flex-col items-start justify-center pt-6 lg:pt-0 z-20">
+    <div class="w-full lg:w-1/2 flex flex-col items-start justify-center z-20">
       
       <!-- Target Badge Slot with Tagline & 1.2s Accordion Collapse Animation -->
-      <div class="relative mb-6 min-h-[44px] flex items-center justify-center">
+      <div class="relative mb-4 lg:mb-5 min-h-[40px] flex items-center justify-center">
         <div
           bind:this={badgeEl}
           style={transformStyle}
-          class="bg-[#00D1B2] rounded-full px-5 py-2 flex items-center justify-center text-center gap-2 shadow-lg shadow-[#00D1B2]/40 transition-all duration-[1200ms] cubic-bezier(0.16, 1, 0.3, 1) z-30 pointer-events-auto origin-center max-w-[95vw] overflow-hidden"
+          class="bg-[#00D1B2] rounded-full px-4 sm:px-5 py-1.5 sm:py-2 flex items-center justify-center text-center gap-2 shadow-lg shadow-[#00D1B2]/40 transition-all duration-[1200ms] cubic-bezier(0.16, 1, 0.3, 1) z-30 pointer-events-auto origin-center max-w-[95vw] overflow-hidden"
         >
           <!-- Modern WOW Sparkles Icon -->
           <div class="p-1 bg-[#0A0A0A]/15 rounded-full flex items-center justify-center flex-shrink-0 animate-wow-pop">
-            <Sparkles size={20} class="text-[#0A0A0A] animate-wow-icon" />
+            <Sparkles size={18} class="text-[#0A0A0A] animate-wow-icon" />
           </div>
 
           <!-- Main Badge Title -->
-          <span class="text-[#0A0A0A] font-extrabold tracking-tight text-xs sm:text-base whitespace-nowrap text-center">
+          <span class="text-[#0A0A0A] font-extrabold tracking-tight text-xs sm:text-sm md:text-base whitespace-nowrap text-center">
             {mainText || "\u00A0"}
           </span>
 
@@ -256,13 +265,13 @@
             class="transition-all duration-[1200ms] cubic-bezier(0.16, 1, 0.3, 1) overflow-hidden flex items-center origin-left
             {isAccordionOut ? 'max-w-0 opacity-0 scale-90 -ml-2' : 'max-w-[360px] opacity-100 scale-100 ml-0'}"
           >
-            <span class="text-[#0A0A0A] font-bold text-xs sm:text-base whitespace-nowrap">
+            <span class="text-[#0A0A0A] font-bold text-xs sm:text-sm md:text-base whitespace-nowrap">
               {taglineText}
             </span>
           </div>
 
           {#if !isCursorHidden}
-            <span class="inline-block w-0.5 h-5 bg-[#0A0A0A] ml-0.5 animate-[blink_0.8s_step-end_infinite]"></span>
+            <span class="inline-block w-0.5 h-4 sm:h-5 bg-[#0A0A0A] ml-0.5 animate-[blink_0.8s_step-end_infinite]"></span>
           {/if}
         </div>
       </div>
@@ -272,14 +281,14 @@
         class="w-full flex flex-col items-start transition-all duration-700 ease-out transform {isContentRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}"
       >
         <!-- Main Headline -->
-        <h1 class="text-4xl sm:text-5xl lg:text-[4.2rem] leading-[1.1] font-extrabold mb-6 tracking-tight">
+        <h1 class="text-3xl sm:text-4xl lg:text-4xl xl:text-[3.25rem] 2xl:text-[3.6rem] leading-[1.12] font-extrabold mb-4 sm:mb-5 tracking-tight">
           Jasa Desain Compro,<br />
           Legalitas &amp; Website<br />
           dalam <span class="text-[#00D1B2]">Satu Pintu!</span>
         </h1>
 
         <!-- Sub-headline/Description -->
-        <p class="text-gray-300 text-base sm:text-lg lg:text-xl leading-relaxed mb-10 max-w-xl">
+        <p class="text-gray-300 text-sm sm:text-base lg:text-base xl:text-lg leading-relaxed mb-6 sm:mb-8 max-w-lg">
           Mulai dari nol hingga siap presentasi ke klien, kami membantu Anda mengurus <strong class="text-white">legalitas, desain logo, company profile, dan website bisnis</strong> dalam satu layanan yang praktis, profesional, dan terpercaya.
         </p>
 
@@ -290,7 +299,7 @@
             target="_blank"
             rel="noopener noreferrer"
             onclick={handleCtaClick}
-            class="btn-glow inline-block bg-[#00D1B2] text-[#0A0A0A] font-bold text-lg px-8 py-3.5 rounded-full"
+            class="btn-glow inline-block bg-[#00D1B2] text-[#0A0A0A] font-bold text-base sm:text-lg px-7 py-3 rounded-full"
           >
             Konsultasi Sekarang!
           </a>
@@ -301,10 +310,10 @@
 
     <!-- Image Content (Right Side) -->
     <div
-      class="w-full lg:w-1/2 mt-12 lg:mt-0 flex justify-center lg:justify-end relative z-10 pointer-events-none transition-all duration-800 ease-out transform {isContentRevealed ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}"
+      class="w-full lg:w-1/2 mt-8 lg:mt-0 flex justify-center lg:justify-end relative z-10 pointer-events-none transition-all duration-800 ease-out transform {isContentRevealed ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}"
     >
       <!-- Floating Mockup Composition -->
-      <div class="relative w-full max-w-[800px] right-[-5%] lg:right-[-10%] scale-110 lg:scale-125 transform lg:translate-y-0 animate-float">
+      <div class="relative w-full max-w-[480px] lg:max-w-[560px] xl:max-w-[620px] animate-float">
         <img
           src="/KV.webp"
           alt="Mockup Company Profile, Website, dan Dokumen Legalitas"
@@ -318,15 +327,15 @@
 
   <!-- Compact Stats Bar -->
   <div 
-    class="container mx-auto px-6 lg:px-16 relative z-10 mt-8 lg:mt-16 mb-10 lg:mb-6 transition-all duration-1000 ease-out transform
+    class="container mx-auto px-6 lg:px-16 relative z-10 mt-2 lg:mt-4 mb-4 lg:mb-4 transition-all duration-1000 ease-out transform
     {isContentRevealed ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-98'}"
     style="transition-delay: 400ms;"
   >
-    <div class="w-full border-t border-white/10 pt-8">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="w-full border-t border-white/10 pt-4 lg:pt-5">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         <!-- Stat 1: Klien -->
-        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 group">
-          <span class="text-3xl lg:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-[75px]">
+        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
+          <span class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-[65px] sm:min-w-[75px]">
             {clientCount}+
           </span>
           <div class="flex flex-col">
@@ -340,8 +349,8 @@
         </div>
 
         <!-- Stat 2: Proyek Selesai -->
-        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 group">
-          <span class="text-3xl lg:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-[75px]">
+        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
+          <span class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-[65px] sm:min-w-[75px]">
             {projectCount}+
           </span>
           <div class="flex flex-col">
@@ -355,8 +364,8 @@
         </div>
 
         <!-- Stat 3: Desain Orisinal -->
-        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 group">
-          <span class="text-3xl lg:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-[75px]">
+        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
+          <span class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-[65px] sm:min-w-[75px]">
             {originalCount}%
           </span>
           <div class="flex flex-col">
@@ -370,8 +379,8 @@
         </div>
 
         <!-- Stat 4: Konsultasi Responsif -->
-        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 group">
-          <span class="text-3xl lg:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-[75px]">
+        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
+          <span class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-[65px] sm:min-w-[75px]">
             {supportCount}/7
           </span>
           <div class="flex flex-col">
