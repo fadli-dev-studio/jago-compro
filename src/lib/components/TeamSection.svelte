@@ -45,7 +45,7 @@
   class="py-20 bg-[#0A0A0A] relative overflow-hidden"
 >
   <!-- Decorative background glow -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#00D1B2]/5 rounded-full blur-[130px] pointer-events-none z-0"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-[#00D1B2]/5 rounded-full blur-[130px] pointer-events-none z-0"></div>
 
   <div class="container mx-auto px-6 lg:px-16 relative z-10">
     <!-- Header -->
@@ -73,7 +73,7 @@
           src="{base}/team/hafid.webp"
           alt="Featured Tim - Hafid"
           loading="lazy"
-          class="team-img w-full max-w-[340px] lg:max-w-none h-auto object-contain cursor-pointer rounded-2xl"
+          class="team-img w-full max-w-85 lg:max-w-none h-auto object-contain cursor-pointer rounded-2xl"
         />
       </div>
 
