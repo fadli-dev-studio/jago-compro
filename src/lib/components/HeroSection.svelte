@@ -238,7 +238,7 @@
   {/if}
 
   <!-- Hero Content Container -->
-  <main class="container mx-auto px-6 lg:px-16 flex-grow flex flex-col lg:flex-row items-center justify-between relative z-10 my-auto py-4">
+  <main class="container mx-auto px-6 lg:px-16 grow flex flex-col lg:flex-row items-center justify-between relative z-10 my-auto py-4">
     
     <!-- Left Column (Text & Badge) -->
     <div class="w-full lg:w-1/2 flex flex-col items-start justify-center z-20">
@@ -251,7 +251,7 @@
           class="bg-[#00D1B2] rounded-full px-4 sm:px-5 py-1.5 sm:py-2 flex items-center justify-center text-center gap-2 shadow-lg shadow-[#00D1B2]/40 transition-all duration-[1200ms] cubic-bezier(0.16, 1, 0.3, 1) z-30 pointer-events-auto origin-center max-w-[95vw] overflow-hidden"
         >
           <!-- Modern WOW Sparkles Icon -->
-          <div class="p-1 bg-[#0A0A0A]/15 rounded-full flex items-center justify-center flex-shrink-0 animate-wow-pop">
+          <div class="p-1 bg-[#0A0A0A]/15 rounded-full flex items-center justify-center shrink-0 animate-wow-pop">
             <Sparkles size={18} class="text-[#0A0A0A] animate-wow-icon" />
           </div>
 
@@ -400,6 +400,6 @@
   <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 pointer-events-none z-0" style="background-image: url('/background.webp');"></div>
 
   <!-- Background overlays -->
-  <div class="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent pointer-events-none z-0 lg:hidden"></div>
-  <div class="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/95 to-transparent pointer-events-none z-0 hidden lg:block w-[60%]"></div>
+  <div class="absolute inset-0 bg-linear-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent pointer-events-none z-0 lg:hidden"></div>
+  <div class="absolute inset-0 bg-linear-to-r from-[#0A0A0A] via-[#0A0A0A]/95 to-transparent pointer-events-none z-0 hidden lg:block w-[60%]"></div>
 </section>
