@@ -3,6 +3,7 @@
   import HeroSection from '$lib/components/HeroSection.svelte';
   import WhyChooseUsSection from '$lib/components/WhyChooseUsSection.svelte';
   import ServicesSection from '$lib/components/ServicesSection.svelte';
+  import AlurPengerjaanSection from '$lib/components/AlurPengerjaanSection.svelte';
   import TestimonialsSection from '$lib/components/TestimonialsSection.svelte';
   import TeamSection from '$lib/components/TeamSection.svelte';
   import PortfolioSection from '$lib/components/PortfolioSection.svelte';
@@ -15,6 +16,7 @@
 <HeroSection />
 <WhyChooseUsSection />
 <ServicesSection />
+<AlurPengerjaanSection />
 <ClientLogoSection />
 <TestimonialsSection />
 <TeamSection />

@@ -215,7 +215,7 @@
       {#each displayedItems as item (item.id)}
         <button
           type="button"
-          onclick={() => openModal(item.src, `${item.title} - ${item.category}`, item.url || null)}
+          onclick={() => openModal(item.src, `${item.title} - ${item.category}`, ('url' in item ? (item as { url?: string }).url || null : null))}
           class="group relative w-full h-[300px] overflow-hidden rounded-3xl border border-white/10 bg-white/5 text-left transition-all duration-300 hover:scale-[1.02] hover:border-[#00D1B2]/50 shadow-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#00D1B2]"
         >
           <img

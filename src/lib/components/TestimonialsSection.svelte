@@ -122,7 +122,7 @@
       <div
         class="overflow-hidden cursor-grab active:cursor-grabbing"
         use:emblaCarouselSvelte={{ options: emblaOptions, plugins: emblaPlugins }}
-        onembla={onInit}
+        {...{ onembla: onInit }}
       >
         <div class="flex -ml-4">
           {#each testimonials as testimonial}
