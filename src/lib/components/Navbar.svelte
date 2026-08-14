@@ -77,10 +77,11 @@
             target="_blank"
             rel="noopener noreferrer"
             onclick={() => handleExpressClick('navbar_desktop')}
-            class="bg-linear-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-orange-400 text-slate-950 font-bold text-xs sm:text-sm px-3.5 py-2 rounded-full shadow-md shadow-amber-500/20 hover:shadow-amber-500/40 hover:scale-105 transition-all duration-200 flex items-center gap-1.5"
+            class="btn-express-attention bg-linear-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-orange-400 text-slate-950 font-bold text-xs sm:text-sm px-3.5 py-1.5 rounded-full hover:scale-105 transition-all duration-200 flex items-center gap-1.5 group/express"
           >
-            <Zap size={14} class="fill-slate-950 text-slate-950" />
-            <span>Desain Compro Express 1 Hari</span>
+            <span class="express-shine-bar"></span>
+            <Zap size={14} class="fill-slate-950 text-slate-950 icon-zap-flash shrink-0" />
+            <span class="relative z-10">Desain Compro Express 1 Hari</span>
           </a>
         </div>
 
@@ -145,10 +146,11 @@
               handleExpressClick('navbar_mobile');
               closeMenu();
             }}
-            class="w-full flex items-center justify-center gap-2 bg-linear-to-r from-amber-400 to-amber-500 text-slate-950 font-bold px-4 py-2.5 rounded-full shadow-md transition-colors text-sm"
+            class="btn-express-attention w-full flex items-center justify-center gap-2 bg-linear-to-r from-amber-400 to-amber-500 text-slate-950 font-bold px-4 py-2.5 rounded-full transition-colors text-sm group/express"
           >
-            <Zap size={16} class="fill-slate-950 text-slate-950" />
-            <span>Desain Compro Express 1 Hari</span>
+            <span class="express-shine-bar"></span>
+            <Zap size={16} class="fill-slate-950 text-slate-950 icon-zap-flash shrink-0" />
+            <span class="relative z-10">Desain Compro Express 1 Hari</span>
           </a>
         </li>
         <li>

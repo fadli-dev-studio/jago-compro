@@ -287,4 +287,95 @@
   }
 }
 
+/* ============================================================
+   Express 1 Hari CTA Button & Icon "Hey I'm Here" Attention System
+   ============================================================ */
+@keyframes expressAttentionPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.45), 0 4px 14px rgba(245, 158, 11, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 22px 5px rgba(245, 158, 11, 0.65), 0 6px 20px rgba(245, 158, 11, 0.45);
+    transform: scale(1.035);
+  }
+}
+
+@keyframes expressShineSweep {
+  0% {
+    transform: translateX(-120%) skewX(-25deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(220%) skewX(-25deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(220%) skewX(-25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes zapFlashEnergy {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  8% {
+    transform: scale(1.35) rotate(-14deg);
+    filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 10px #fbbf24);
+  }
+  16% {
+    transform: scale(1.15) rotate(10deg);
+    filter: drop-shadow(0 0 4px #fbbf24);
+  }
+  24% {
+    transform: scale(1.28) rotate(-8deg);
+    filter: drop-shadow(0 0 6px #fff);
+  }
+  32% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 0 transparent);
+  }
+}
+
+.btn-express-attention {
+  animation: expressAttentionPulse 2.8s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.express-shine-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 45%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 100%
+  );
+  animation: expressShineSweep 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+.icon-zap-flash {
+  animation: zapFlashEnergy 3.2s ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-express-attention,
+  .express-shine-bar,
+  .icon-zap-flash {
+    animation: none;
+  }
+}
+
+
 

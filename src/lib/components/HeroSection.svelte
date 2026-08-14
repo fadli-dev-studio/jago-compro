@@ -198,16 +198,17 @@
           </a>
         {/each}
 
-        <!-- Desain Compro Express 1 Hari Button -->
+        <!-- Desain Compro Express 1 Hari Button (with Attention Pulse & Energy Zap Flash) -->
         <a
           href={siteConfig.whatsappExpressUrl}
           target="_blank"
           rel="noopener noreferrer"
           onclick={handleExpressClick}
-          class="bg-linear-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-orange-400 text-slate-950 font-bold text-xs xl:text-sm px-3.5 py-1.5 rounded-full shadow-md shadow-amber-500/20 hover:shadow-amber-500/40 hover:scale-105 transition-all duration-200 flex items-center gap-1.5 shrink-0"
+          class="btn-express-attention bg-linear-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-orange-400 text-slate-950 font-bold text-xs xl:text-sm px-3.5 py-1.5 rounded-full hover:scale-105 transition-all duration-200 flex items-center gap-1.5 shrink-0 group/express"
         >
-          <Zap size={14} class="fill-slate-950 text-slate-950" />
-          <span>Desain Compro Express 1 Hari</span>
+          <span class="express-shine-bar"></span>
+          <Zap size={14} class="fill-slate-950 text-slate-950 icon-zap-flash shrink-0" />
+          <span class="relative z-10">Desain Compro Express 1 Hari</span>
         </a>
 
         <!-- Konsultasi CTA -->
@@ -260,10 +261,11 @@
         target="_blank"
         rel="noopener noreferrer"
         onclick={() => { handleExpressClick(); closeMobileMenu(); }}
-        class="w-full max-w-xs text-center bg-linear-to-r from-amber-400 to-amber-500 text-slate-950 font-bold px-6 py-2.5 rounded-full flex items-center justify-center gap-2 shadow-lg shadow-amber-500/30 mt-2"
+        class="btn-express-attention w-full max-w-xs text-center bg-linear-to-r from-amber-400 to-amber-500 text-slate-950 font-bold px-6 py-2.5 rounded-full flex items-center justify-center gap-2 mt-2 group/express"
       >
-        <Zap size={16} class="fill-slate-950 text-slate-950" />
-        <span>Desain Compro Express 1 Hari</span>
+        <span class="express-shine-bar"></span>
+        <Zap size={16} class="fill-slate-950 text-slate-950 icon-zap-flash shrink-0" />
+        <span class="relative z-10">Desain Compro Express 1 Hari</span>
       </a>
 
       <!-- Konsultasi Mobile CTA -->
