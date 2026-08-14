@@ -171,7 +171,7 @@
 <section 
   id="portfolio" 
   bind:this={sectionEl}
-  class="py-20 bg-[#0A0A0A] relative overflow-hidden"
+  class="py-20 bg-transparent relative overflow-hidden"
 >
   <div class="container mx-auto px-6 lg:px-16 relative z-10">
     <!-- Header -->
@@ -287,9 +287,4 @@
     </div>
   {/if}
 
-  <!-- Background Accents -->
-  <div class="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-    <div class="absolute top-1/4 -right-20 w-96 h-96 bg-[#00D1B2]/10 rounded-full blur-[120px]"></div>
-    <div class="absolute bottom-1/4 -left-20 w-96 h-96 bg-[#00D1B2]/5 rounded-full blur-[120px]"></div>
-  </div>
 </section>

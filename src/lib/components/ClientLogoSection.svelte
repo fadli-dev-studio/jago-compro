@@ -61,29 +61,26 @@
 <section 
   id="clients" 
   bind:this={sectionEl}
-  class="py-20 bg-[#0A0A0A] relative overflow-hidden"
+  class="py-20 bg-transparent relative overflow-hidden"
 >
-  <!-- Decorative background glow -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-[#00D1B2]/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
-
   <div class="container mx-auto px-6 lg:px-16 relative z-10">
     <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center justify-center">
       <!-- Left Column: Client Appreciation Layout Image -->
       <div 
-        class="w-full lg:w-[35%] flex items-center justify-center transform transition-all duration-1000 ease-out
+        class="w-full lg:w-[40%] flex items-center justify-center transform transition-all duration-1000 ease-out
         {isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'}"
       >
         <img
-          src="{base}/client_appreciation.webp"
-          alt="Client Appreciation Layout"
+          src="{base}/KV_KLIEN.webp"
+          alt="Berbagai Bidang Industri Telah Kami Tangani - Jago Compro"
           loading="lazy"
-          class="w-full h-auto max-w-85 lg:max-w-none object-contain rounded-3xl shadow-2xl border border-white/10"
+          class="w-full h-auto max-w-sm sm:max-w-md lg:max-w-none object-contain rounded-3xl shadow-2xl border border-white/10"
         />
       </div>
 
       <!-- Right Column: Logos and Text -->
       <div 
-        class="w-full lg:w-[65%] flex flex-col justify-center transform transition-all duration-1000 ease-out overflow-hidden
+        class="w-full lg:w-[60%] flex flex-col justify-center transform transition-all duration-1000 ease-out overflow-hidden
         {isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}"
         style="transition-delay: 200ms;"
       >
@@ -101,14 +98,14 @@
           <div class="overflow-hidden w-full relative mask-gradient">
             <div class="animate-marquee gap-5 py-1">
               {#each row1 as logo}
-                <div class="flex items-center justify-center h-12 w-24 shrink-0 bg-white/5 border border-white/5 rounded-xl p-2.5">
-                  <img src={logo} alt="Logo" loading="lazy" class="max-w-full max-h-full object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0" />
+                <div class="flex items-center justify-center h-14 w-28 shrink-0 bg-white rounded-xl shadow-xs border border-white/20 p-2 hover:scale-105 hover:shadow-md transition-transform duration-200">
+                  <img src={logo} alt="Logo Klien" loading="lazy" class="max-w-full max-h-full object-contain" />
                 </div>
               {/each}
               <!-- Duplication for seamless infinite looping -->
               {#each row1 as logo}
-                <div class="flex items-center justify-center h-12 w-24 shrink-0 bg-white/5 border border-white/5 rounded-xl p-2.5">
-                  <img src={logo} alt="Logo" loading="lazy" class="max-w-full max-h-full object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0" />
+                <div class="flex items-center justify-center h-14 w-28 shrink-0 bg-white rounded-xl shadow-xs border border-white/20 p-2 hover:scale-105 hover:shadow-md transition-transform duration-200">
+                  <img src={logo} alt="Logo Klien" loading="lazy" class="max-w-full max-h-full object-contain" />
                 </div>
               {/each}
             </div>
@@ -118,14 +115,14 @@
           <div class="overflow-hidden w-full relative mask-gradient">
             <div class="animate-marquee-reverse gap-5 py-1">
               {#each row2 as logo}
-                <div class="flex items-center justify-center h-12 w-24 shrink-0 bg-white/5 border border-white/5 rounded-xl p-2.5">
-                  <img src={logo} alt="Logo" loading="lazy" class="max-w-full max-h-full object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0" />
+                <div class="flex items-center justify-center h-14 w-28 shrink-0 bg-white rounded-xl shadow-xs border border-white/20 p-2 hover:scale-105 hover:shadow-md transition-transform duration-200">
+                  <img src={logo} alt="Logo Klien" loading="lazy" class="max-w-full max-h-full object-contain" />
                 </div>
               {/each}
               <!-- Duplication for seamless infinite looping -->
               {#each row2 as logo}
-                <div class="flex items-center justify-center h-12 w-24 shrink-0 bg-white/5 border border-white/5 rounded-xl p-2.5">
-                  <img src={logo} alt="Logo" loading="lazy" class="max-w-full max-h-full object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0" />
+                <div class="flex items-center justify-center h-14 w-28 shrink-0 bg-white rounded-xl shadow-xs border border-white/20 p-2 hover:scale-105 hover:shadow-md transition-transform duration-200">
+                  <img src={logo} alt="Logo Klien" loading="lazy" class="max-w-full max-h-full object-contain" />
                 </div>
               {/each}
             </div>
@@ -135,14 +132,14 @@
           <div class="overflow-hidden w-full relative mask-gradient">
             <div class="animate-marquee gap-5 py-1">
               {#each row3 as logo}
-                <div class="flex items-center justify-center h-12 w-24 shrink-0 bg-white/5 border border-white/5 rounded-xl p-2.5">
-                  <img src={logo} alt="Logo" loading="lazy" class="max-w-full max-h-full object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0" />
+                <div class="flex items-center justify-center h-14 w-28 shrink-0 bg-white rounded-xl shadow-xs border border-white/20 p-2 hover:scale-105 hover:shadow-md transition-transform duration-200">
+                  <img src={logo} alt="Logo Klien" loading="lazy" class="max-w-full max-h-full object-contain" />
                 </div>
               {/each}
               <!-- Duplication for seamless infinite looping -->
               {#each row3 as logo}
-                <div class="flex items-center justify-center h-12 w-24 shrink-0 bg-white/5 border border-white/5 rounded-xl p-2.5">
-                  <img src={logo} alt="Logo" loading="lazy" class="max-w-full max-h-full object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0" />
+                <div class="flex items-center justify-center h-14 w-28 shrink-0 bg-white rounded-xl shadow-xs border border-white/20 p-2 hover:scale-105 hover:shadow-md transition-transform duration-200">
+                  <img src={logo} alt="Logo Klien" loading="lazy" class="max-w-full max-h-full object-contain" />
                 </div>
               {/each}
             </div>

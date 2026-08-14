@@ -36,17 +36,18 @@
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     
-    const xc = rect.width / 2;
-    const yc = rect.height / 2;
+    // Hitung posisi kursor dalam skala -1 sampai 1
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = (y - centerY) / centerY;
+    const rotateY = (x - centerX) / centerX;
     
-    // Hitung sudut rotasi 3D berdasarkan ukuran gambar
-    const angleX = (yc - y) / (yc / 10);
-    const angleY = (x - xc) / (xc / 10);
+    // Terapkan rotasi 3D tilt yang smooth (max ~15 derajat)
+    const maxRotate = 15;
+    const angleX = -rotateX * maxRotate;
+    const angleY = rotateY * maxRotate;
     
-    // Animasikan gambar
-    cardEl.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale3d(1.04, 1.04, 1.04)`;
-    
-    // Terapkan bayangan dinamis langsung ke gambar dengan tambahan ambient glow tipis dan efek pencahayaan (brightness)
+    cardEl.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale3d(1.05, 1.05, 1.05)`;
     cardEl.style.filter = `drop-shadow(${-angleY * 1.2}px ${angleX * 1.2}px 20px rgba(0, 209, 178, 0.3)) drop-shadow(0 0 30px rgba(0, 209, 178, 0.2)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5)) brightness(1.05)`;
   }
   
@@ -61,11 +62,8 @@
 <section 
   id="why-choose-us" 
   bind:this={sectionEl}
-  class="py-20 bg-[#0A0A0A] relative overflow-hidden"
+  class="py-20 bg-transparent relative overflow-hidden"
 >
-  <!-- Decorative background glow -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-[#00D1B2]/5 rounded-full blur-[130px] pointer-events-none z-0"></div>
-
   <div class="container mx-auto px-6 lg:px-16 relative z-10">
     <!-- Header -->
     <div 

@@ -95,7 +95,7 @@
 <section 
   id="alur-pengerjaan" 
   bind:this={sectionEl}
-  class="py-14 lg:py-16 bg-[#07090E] relative overflow-hidden text-white"
+  class="py-14 lg:py-16 bg-transparent relative overflow-hidden text-white"
 >
   <div class="container mx-auto px-6 lg:px-16 relative z-10">
     <!-- Header Ringkas -->

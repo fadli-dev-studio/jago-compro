@@ -185,7 +185,7 @@
 <section 
   id="faq" 
   bind:this={sectionEl}
-  class="py-20 bg-[#0A0A0A] relative overflow-hidden"
+  class="py-20 bg-transparent relative overflow-hidden"
 >
   <div class="container mx-auto px-6 lg:px-16 relative z-10">
     <!-- Header -->

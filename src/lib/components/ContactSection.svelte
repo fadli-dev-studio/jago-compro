@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { base } from '$app/paths';
   import { siteConfig } from '$lib/config/site';
   import { trackEvent } from '$lib/gtag';
   import { MessageCircle } from '@lucide/svelte';
@@ -56,8 +57,8 @@
   }
 </script>
 
-<footer id="contact" class="bg-slate-950 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<footer id="contact" class="bg-[#0A0A0A] text-white relative overflow-hidden border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
     <!-- CTA Section Card -->
     <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-8 mb-12 flex flex-col md:flex-row justify-between items-center gap-6 shadow-xl">
       <div>
@@ -83,10 +84,17 @@
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 py-8">
       <!-- Logo & Description -->
       <div class="col-span-2 lg:col-span-2">
-        <h4 class="text-xl font-bold tracking-wide">
-          Jago-<span class="text-emerald-400">COMPRO</span>
-        </h4>
-        <p class="mt-4 text-sm font-semibold text-slate-300">CV. Langit Karya Tadulako</p>
+        <a href="/" class="inline-block mb-3" aria-label="Beranda JagoCompro">
+          <picture>
+            <source srcset="{base}/logo-jc.webp" type="image/webp" />
+            <img
+              src="{base}/logo-jc.png"
+              alt="Logo Jago Compro"
+              class="h-9 sm:h-11 w-auto object-contain"
+            />
+          </picture>
+        </a>
+        <p class="mt-2 text-sm font-semibold text-slate-300">CV. Langit Karya Tadulako</p>
         <p class="mt-1 text-sm text-slate-400 max-w-sm">Membantu bisnis Anda tampil lebih profesional.</p>
       </div>
 
