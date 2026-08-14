@@ -1,7 +1,8 @@
 <script lang="ts">
+  import { base } from '$app/paths';
   import { siteConfig } from '$lib/config/site';
   import { trackEvent } from '$lib/gtag';
-  import { Menu, X } from '@lucide/svelte';
+  import { Menu, X, Zap } from '@lucide/svelte';
   import { slide } from 'svelte/transition';
 
   let isMenuOpen = $state(false);
@@ -22,21 +23,31 @@
       fbParams: { source }
     });
   }
+
+  function handleExpressClick(source: string) {
+    trackEvent('click_whatsapp', {
+      category: 'engagement',
+      label: 'navbar_express_button',
+      fbEventName: 'Lead',
+      fbParams: { source }
+    });
+  }
 </script>
 
 <nav class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-xl border-b border-slate-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       <!-- Logo -->
-      <div class="flex-shrink-0">
+      <div class="shrink-0">
         <a href="/" aria-label="Beranda JagoCompro" class="block">
-          <img
-            src="/logo-jago-compro.svg"
-            alt="Logo JagoCompro"
-            width="140"
-            height="40"
-            class="h-10 w-auto"
-          />
+          <picture>
+            <source srcset="{base}/logo-jc.webp" type="image/webp" />
+            <img
+              src="{base}/logo-jc.png"
+              alt="Logo JagoCompro"
+              class="h-9 sm:h-10 w-auto object-contain"
+            />
+          </picture>
         </a>
       </div>
 
@@ -57,23 +68,37 @@
         </ul>
       </div>
 
-      <!-- CTA Button + Mobile Toggle -->
-      <div class="flex items-center">
-        <!-- WhatsApp CTA (Desktop only) -->
-        <div class="hidden lg:flex flex-shrink-0">
+      <!-- CTA Buttons + Mobile Toggle -->
+      <div class="flex items-center gap-3">
+        <!-- Express CTA (Desktop) -->
+        <div class="hidden md:flex shrink-0">
+          <a
+            href={siteConfig.whatsappExpressUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick={() => handleExpressClick('navbar_desktop')}
+            class="bg-linear-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-orange-400 text-slate-950 font-bold text-xs sm:text-sm px-3.5 py-2 rounded-full shadow-md shadow-amber-500/20 hover:shadow-amber-500/40 hover:scale-105 transition-all duration-200 flex items-center gap-1.5"
+          >
+            <Zap size={14} class="fill-slate-950 text-slate-950" />
+            <span>Desain Compro Express 1 Hari</span>
+          </a>
+        </div>
+
+        <!-- WhatsApp CTA (Desktop) -->
+        <div class="hidden lg:flex shrink-0">
           <a
             href={siteConfig.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             onclick={() => handleWhatsappClick('navbar_desktop')}
-            class="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-4 py-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            class="bg-[#00D1B2]/10 hover:bg-[#00D1B2] text-[#00D1B2] hover:text-[#0A0A0A] border border-[#00D1B2]/40 font-bold text-xs sm:text-sm px-4 py-2 rounded-full transition-all duration-200"
           >
-            Konsultasi WhatsApp
+            Konsultasi
           </a>
         </div>
 
         <!-- Hamburger Menu (Mobile) -->
-        <div class="flex sm:hidden ml-4">
+        <div class="flex sm:hidden ml-2">
           <button
             type="button"
             onclick={toggleMenu}
@@ -111,6 +136,21 @@
             </a>
           </li>
         {/each}
+        <li class="pt-2">
+          <a
+            href={siteConfig.whatsappExpressUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick={() => {
+              handleExpressClick('navbar_mobile');
+              closeMenu();
+            }}
+            class="w-full flex items-center justify-center gap-2 bg-linear-to-r from-amber-400 to-amber-500 text-slate-950 font-bold px-4 py-2.5 rounded-full shadow-md transition-colors text-sm"
+          >
+            <Zap size={16} class="fill-slate-950 text-slate-950" />
+            <span>Desain Compro Express 1 Hari</span>
+          </a>
+        </li>
         <li>
           <a
             href={siteConfig.whatsappUrl}
@@ -120,7 +160,7 @@
               handleWhatsappClick('navbar_mobile');
               closeMenu();
             }}
-            class="mt-3 w-full block text-center bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-4 py-2 rounded-md transition-colors"
+            class="mt-2 w-full block text-center btn-glow bg-[#00D1B2] text-[#0A0A0A] font-bold px-4 py-2.5 rounded-full transition-colors text-sm"
           >
             Konsultasi WhatsApp
           </a>

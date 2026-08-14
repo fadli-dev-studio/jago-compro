@@ -4,7 +4,7 @@
   import { base } from '$app/paths';
   import { siteConfig } from '$lib/config/site';
   import { trackEvent } from '$lib/gtag';
-  import { Menu, X, Sparkles } from '@lucide/svelte';
+  import { Menu, X, Sparkles, Zap } from '@lucide/svelte';
 
   let isMobileMenuOpen = $state(false);
   let mainText = $state('');
@@ -18,8 +18,7 @@
 
   // State untuk animasi count-up statistik
   let clientCount = $state(0);
-  let projectCount = $state(0);
-  let originalCount = $state(0);
+  let customCount = $state(0);
   let supportCount = $state(0);
 
   function animateValue(target: number, updateFn: (val: number) => void, duration: number) {
@@ -46,8 +45,7 @@
     if (isContentRevealed) {
       setTimeout(() => {
         animateValue(450, (val) => clientCount = val, 1600);
-        animateValue(450, (val) => projectCount = val, 1600);
-        animateValue(100, (val) => originalCount = val, 1600);
+        animateValue(100, (val) => customCount = val, 1600);
         animateValue(24, (val) => supportCount = val, 1000);
       }, 400);
     }
@@ -114,7 +112,7 @@
   let activeSection = $state('hero');
 
   onMount(() => {
-    const sections = ['hero', 'why-choose-us', 'layanan', 'clients', 'testimonials', 'team', 'portfolio', 'faq', 'contact'];
+    const sections = ['hero', 'why-choose-us', 'layanan', 'clients', 'client-map', 'testimonials', 'team', 'portfolio', 'faq', 'contact'];
 
     function handleScroll() {
       const scrollPosition = window.scrollY + 160; // offset untuk tinggi header
@@ -161,35 +159,64 @@
       fbParams: { source: 'hero' }
     });
   }
+
+  function handleExpressClick() {
+    trackEvent('click_whatsapp', {
+      category: 'engagement',
+      label: 'hero_whatsapp_express_button',
+      fbEventName: 'Lead',
+      fbParams: { source: 'navbar_express' }
+    });
+  }
 </script>
 
 <section id="hero" class="hero-section min-h-screen lg:h-screen lg:max-h-235 lg:min-h-160 relative flex flex-col justify-between pt-20 lg:pt-24 pb-6 lg:pb-4 overflow-hidden">
   <!-- Navigation Header -->
-  <header class="fixed top-0 left-0 right-0 w-full z-50 bg-[#0A0A0A]/70 backdrop-blur-md border-b border-white/5 py-4 transition-all duration-300">
+  <header class="fixed top-0 left-0 right-0 w-full z-50 bg-[#0A0A0A]/75 backdrop-blur-md border-b border-white/5 py-3.5 transition-all duration-300">
     <div class="container mx-auto px-6 lg:px-16 flex items-center justify-between">
       <!-- Logo Area -->
-      <a href="/" class="flex items-center gap-2 z-50">
-        <span class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#00D1B2]">Jago</span>
-        <span class="text-2xl sm:text-3xl font-bold tracking-tight text-white">COMPRO</span>
+      <a href="/" class="flex items-center z-50 group" aria-label="Beranda JagoCompro">
+        <picture>
+          <source srcset="{base}/logo-jc.webp" type="image/webp" />
+          <img
+            src="{base}/logo-jc.png"
+            alt="Logo Jago Compro"
+            class="h-8 sm:h-9 lg:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+          />
+        </picture>
       </a>
 
-      <!-- Desktop Menu (Compact 6 items + CTA) -->
-      <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
+      <!-- Desktop Menu (Compact 6 items + Express CTA + Main CTA) -->
+      <nav class="hidden lg:flex items-center gap-4 xl:gap-6">
         {#each siteConfig.navItems as item}
           <a 
             href={item.href} 
-            class="nav-link font-medium inline-block text-sm xl:text-base transition-colors duration-200
+            class="nav-link font-medium inline-block text-xs xl:text-sm transition-colors duration-200
             {activeSection === (item.href === '#' ? 'hero' : item.href.replace('#', '')) ? 'text-[#00D1B2] font-bold text-glow' : 'text-gray-200 hover:text-[#00D1B2]'}"
           >
             {item.label}
           </a>
         {/each}
+
+        <!-- Desain Compro Express 1 Hari Button -->
+        <a
+          href={siteConfig.whatsappExpressUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onclick={handleExpressClick}
+          class="bg-linear-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-orange-400 text-slate-950 font-bold text-xs xl:text-sm px-3.5 py-1.5 rounded-full shadow-md shadow-amber-500/20 hover:shadow-amber-500/40 hover:scale-105 transition-all duration-200 flex items-center gap-1.5 shrink-0"
+        >
+          <Zap size={14} class="fill-slate-950 text-slate-950" />
+          <span>Desain Compro Express 1 Hari</span>
+        </a>
+
+        <!-- Konsultasi CTA -->
         <a
           href={siteConfig.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
           onclick={handleCtaClick}
-          class="bg-[#00D1B2]/10 hover:bg-[#00D1B2] text-[#00D1B2] hover:text-[#0A0A0A] border border-[#00D1B2]/40 font-bold text-xs xl:text-sm px-4 py-1.5 rounded-full transition-all duration-200 ml-2"
+          class="bg-[#00D1B2]/10 hover:bg-[#00D1B2] text-[#00D1B2] hover:text-[#0A0A0A] border border-[#00D1B2]/40 font-bold text-xs xl:text-sm px-4 py-1.5 rounded-full transition-all duration-200 shrink-0"
         >
           Konsultasi
         </a>
@@ -215,7 +242,7 @@
   {#if isMobileMenuOpen}
     <div 
       transition:fade={{ duration: 200 }}
-      class="lg:hidden fixed inset-0 bg-[#0A0A0A]/95 z-40 flex flex-col items-center justify-center space-y-5 text-base overflow-y-auto py-8"
+      class="lg:hidden fixed inset-0 bg-[#0A0A0A]/95 z-40 flex flex-col items-center justify-center space-y-5 text-base overflow-y-auto py-8 px-6"
     >
       {#each siteConfig.navItems as item}
         <a 
@@ -226,12 +253,26 @@
           {item.label}
         </a>
       {/each}
+
+      <!-- Express 1 Hari Mobile CTA -->
+      <a
+        href={siteConfig.whatsappExpressUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick={() => { handleExpressClick(); closeMobileMenu(); }}
+        class="w-full max-w-xs text-center bg-linear-to-r from-amber-400 to-amber-500 text-slate-950 font-bold px-6 py-2.5 rounded-full flex items-center justify-center gap-2 shadow-lg shadow-amber-500/30 mt-2"
+      >
+        <Zap size={16} class="fill-slate-950 text-slate-950" />
+        <span>Desain Compro Express 1 Hari</span>
+      </a>
+
+      <!-- Konsultasi Mobile CTA -->
       <a
         href={siteConfig.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         onclick={() => { handleCtaClick(); closeMobileMenu(); }}
-        class="btn-glow bg-[#00D1B2] text-[#0A0A0A] font-bold px-8 py-3 rounded-full mt-3"
+        class="w-full max-w-xs text-center btn-glow bg-[#00D1B2] text-[#0A0A0A] font-bold px-8 py-2.5 rounded-full"
       >
         Konsultasi Sekarang!
       </a>
@@ -326,16 +367,16 @@
     </div>
   </main>
 
-  <!-- Compact Stats Bar -->
+  <!-- Compact Stats Bar (3 Stats) -->
   <div 
     class="container mx-auto px-6 lg:px-16 relative z-10 mt-2 lg:mt-4 mb-4 lg:mb-4 transition-all duration-1000 ease-out transform
     {isContentRevealed ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-98'}"
     style="transition-delay: 400ms;"
   >
     <div class="w-full border-t border-white/10 pt-4 lg:pt-5">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto">
         <!-- Stat 1: Klien -->
-        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
+        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 group justify-center sm:justify-start">
           <span class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-16.25 sm:min-w-18.75">
             {clientCount}+
           </span>
@@ -343,44 +384,29 @@
             <span class="text-white font-bold text-xs uppercase tracking-wider">
               Klien Korporat & UMKM
             </span>
-            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-45 mx-auto sm:mx-0">
+            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-48 mx-auto sm:mx-0">
               Telah mempercayakan legalitas, compro, dan website mereka.
             </span>
           </div>
         </div>
 
-        <!-- Stat 2: Proyek Selesai -->
-        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
+        <!-- Stat 2: 100% Desain Custom -->
+        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 group justify-center sm:justify-start">
           <span class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-16.25 sm:min-w-18.75">
-            {projectCount}+
+            {customCount}%
           </span>
           <div class="flex flex-col">
             <span class="text-white font-bold text-xs uppercase tracking-wider">
-              Proyek Selesai
+              100% Desain Custom
             </span>
-            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-45 mx-auto sm:mx-0">
-              Desain company profile cetak, PDF, dan website corporate.
+            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-48 mx-auto sm:mx-0">
+              Dibuat khusus dari awal sesuai kebutuhan dan Branding Perusahaan.
             </span>
           </div>
         </div>
 
-        <!-- Stat 3: Desain Orisinal -->
-        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
-          <span class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-16.25 sm:min-w-18.75">
-            {originalCount}%
-          </span>
-          <div class="flex flex-col">
-            <span class="text-white font-bold text-xs uppercase tracking-wider">
-              Desain Orisinal
-            </span>
-            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-45 mx-auto sm:mx-0">
-              Dibuat khusus dari awal sesuai brief, tanpa template.
-            </span>
-          </div>
-        </div>
-
-        <!-- Stat 4: Konsultasi Responsif -->
-        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 group">
+        <!-- Stat 3: Konsultasi Responsif -->
+        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 group justify-center sm:justify-start">
           <span class="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-[#00D1B2] tracking-tight drop-shadow-[0_0_8px_rgba(0,209,178,0.25)] transition-transform duration-300 group-hover:scale-110 min-w-16.25 sm:min-w-18.75">
             {supportCount}/7
           </span>
@@ -388,7 +414,7 @@
             <span class="text-white font-bold text-xs uppercase tracking-wider">
               Konsultasi Responsif
             </span>
-            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-45 mx-auto sm:mx-0">
+            <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-48 mx-auto sm:mx-0">
               Tim support kami siap membantu kebutuhan bisnis Anda.
             </span>
           </div>
