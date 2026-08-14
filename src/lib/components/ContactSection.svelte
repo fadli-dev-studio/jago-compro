@@ -59,21 +59,27 @@
 
 <footer id="contact" class="bg-[#0A0A0A] text-white relative overflow-hidden border-t border-white/5">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
-    <!-- CTA Section Card -->
-    <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-8 mb-12 flex flex-col md:flex-row justify-between items-center gap-6 shadow-xl">
-      <div>
-        <h3 class="text-2xl font-bold text-emerald-400">Tertarik Bekerja Sama?</h3>
-        <p class="mt-2 text-slate-300">
+    <!-- CTA Section Card (Transparent Glassmorphic Island) -->
+    <div class="bg-[#0A0A0A]/70 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 mb-12 flex flex-col md:flex-row justify-between items-center gap-6 shadow-2xl shadow-black/60 relative overflow-hidden group">
+      <!-- Ambient interior glow -->
+      <div class="absolute -top-20 -right-20 w-72 h-72 bg-[#00D1B2]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 text-center md:text-left">
+        <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+          Tertarik <span class="text-[#00D1B2]">Bekerja Sama?</span>
+        </h3>
+        <p class="mt-2 text-gray-300 text-sm sm:text-base leading-relaxed max-w-xl">
           Konsultasikan kebutuhan desain company profile Anda bersama tim profesional kami.
         </p>
       </div>
+
       <a
         href={CONTACT_PARAMS.whatsapp.href}
         target="_blank"
         rel="noopener noreferrer"
         onclick={handleWhatsappClick}
         title={CONTACT_PARAMS.whatsapp.label}
-        class="inline-flex items-center gap-2 border-2 border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-slate-950 font-bold px-6 py-3 rounded-xl transition-all shadow-lg hover:shadow-emerald-400/20"
+        class="relative z-10 inline-flex items-center gap-2.5 bg-[#00D1B2]/10 hover:bg-[#00D1B2] text-[#00D1B2] hover:text-[#0A0A0A] border border-[#00D1B2]/40 hover:border-[#00D1B2] font-bold px-6 sm:px-7 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg shadow-[#00D1B2]/10 shrink-0 text-sm sm:text-base cursor-pointer"
       >
         <MessageCircle size={20} class="animate-pulse" />
         <span>{CONTACT_PARAMS.whatsapp.label}</span>
