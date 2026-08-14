@@ -34,9 +34,9 @@
   }
 </script>
 
-<nav class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-xl border-b border-slate-800">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-20">
+<nav class="fixed top-3 sm:top-4 inset-x-0 z-50 flex justify-center px-4 sm:px-6 lg:px-8 pointer-events-none transition-all duration-300">
+  <div class="w-full max-w-7xl bg-[#0A0A0A]/70 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-full py-2 sm:py-2.5 px-4 sm:px-6 lg:px-8 shadow-2xl shadow-black/60 pointer-events-auto flex items-center justify-between transition-all duration-300">
+    <div class="flex items-center justify-between w-full">
       <!-- Logo -->
       <div class="shrink-0">
         <a href="/" aria-label="Beranda JagoCompro" class="block">
@@ -122,7 +122,7 @@
     <div
       transition:slide={{ duration: 250 }}
       id="mobile-menu"
-      class="sm:hidden bg-slate-900 border-t border-slate-800"
+      class="sm:hidden bg-[#0E121D]/95 backdrop-blur-xl border border-white/10 rounded-2xl mt-2 p-4 pointer-events-auto shadow-2xl"
     >
       <ul class="px-4 py-4 space-y-2">
         {#each siteConfig.navItems as item}

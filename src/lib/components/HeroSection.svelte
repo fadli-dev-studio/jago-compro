@@ -171,17 +171,17 @@
 </script>
 
 <section id="hero" class="hero-section min-h-screen lg:h-screen lg:max-h-235 lg:min-h-160 relative flex flex-col justify-between pt-20 lg:pt-24 pb-6 lg:pb-4 overflow-hidden">
-  <!-- Navigation Header -->
-  <header class="fixed top-0 left-0 right-0 w-full z-50 bg-[#0A0A0A]/75 backdrop-blur-md border-b border-white/5 py-3.5 transition-all duration-300">
-    <div class="container mx-auto px-6 lg:px-16 flex items-center justify-between">
+  <!-- Navigation Header (Floating Rounded Glass Island Navbar) -->
+  <header class="fixed top-3 sm:top-4 inset-x-0 z-50 flex justify-center px-4 sm:px-6 lg:px-8 pointer-events-none transition-all duration-300">
+    <div class="w-full max-w-7xl bg-[#0A0A0A]/70 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-full py-2 sm:py-2.5 px-4 sm:px-6 lg:px-8 shadow-2xl shadow-black/60 pointer-events-auto flex items-center justify-between transition-all duration-300">
       <!-- Logo Area -->
-      <a href="/" class="flex items-center z-50 group" aria-label="Beranda JagoCompro">
+      <a href="/" class="flex items-center z-50 group shrink-0" aria-label="Beranda JagoCompro">
         <picture>
           <source srcset="{base}/logo-jc.webp" type="image/webp" />
           <img
             src="{base}/logo-jc.png"
             alt="Logo Jago Compro"
-            class="h-8 sm:h-9 lg:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+            class="h-8 sm:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
           />
         </picture>
       </a>
@@ -227,12 +227,12 @@
         type="button"
         onclick={toggleMobileMenu}
         aria-label="Toggle menu"
-        class="lg:hidden text-white focus:outline-none z-50 p-2 rounded-md hover:bg-white/10"
+        class="lg:hidden text-white focus:outline-none z-50 p-1.5 rounded-lg hover:bg-white/10 transition-colors"
       >
         {#if isMobileMenuOpen}
-          <X size={28} />
+          <X size={26} />
         {:else}
-          <Menu size={28} />
+          <Menu size={26} />
         {/if}
       </button>
     </div>
