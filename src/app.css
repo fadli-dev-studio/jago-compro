@@ -288,15 +288,13 @@
 }
 
 /* ============================================================
-   Express 1 Hari CTA Button & Icon "Hey I'm Here" Attention System
+   Express 1 Hari CTA Button & Icon "Hey I'm Here" Attention System (Clean, No Glow)
    ============================================================ */
 @keyframes expressAttentionPulse {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.45), 0 4px 14px rgba(245, 158, 11, 0.3);
     transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 22px 5px rgba(245, 158, 11, 0.65), 0 6px 20px rgba(245, 158, 11, 0.45);
     transform: scale(1.035);
   }
 }
@@ -307,7 +305,7 @@
     opacity: 0;
   }
   15% {
-    opacity: 1;
+    opacity: 0.8;
   }
   30% {
     transform: translateX(220%) skewX(-25deg);
@@ -322,23 +320,18 @@
 @keyframes zapFlashEnergy {
   0%, 100% {
     transform: scale(1) rotate(0deg);
-    filter: drop-shadow(0 0 0 transparent);
   }
   8% {
-    transform: scale(1.35) rotate(-14deg);
-    filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 10px #fbbf24);
+    transform: scale(1.3) rotate(-14deg);
   }
   16% {
     transform: scale(1.15) rotate(10deg);
-    filter: drop-shadow(0 0 4px #fbbf24);
   }
   24% {
-    transform: scale(1.28) rotate(-8deg);
-    filter: drop-shadow(0 0 6px #fff);
+    transform: scale(1.25) rotate(-8deg);
   }
   32% {
     transform: scale(1) rotate(0deg);
-    filter: drop-shadow(0 0 0 transparent);
   }
 }
 
@@ -353,11 +346,11 @@
   top: 0;
   bottom: 0;
   left: 0;
-  width: 45%;
+  width: 40%;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.4) 50%,
     transparent 100%
   );
   animation: expressShineSweep 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
@@ -366,7 +359,7 @@
 
 .icon-zap-flash {
   animation: zapFlashEnergy 3.2s ease-in-out infinite;
-  will-change: transform, filter;
+  will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
