@@ -11,7 +11,10 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "pages:build": "vite build",
+    "pages:deploy": "npm run build && wrangler pages deploy build --project-name=jago-compro",
+    "pages:preview": "npm run build && wrangler pages deploy build --project-name=jago-compro --branch=preview"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.10",
@@ -23,7 +26,8 @@
     "svelte-check": "^4.1.0",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.3",
-    "vite": "^6.0.0"
+    "vite": "^6.0.0",
+    "wrangler": "^4.123.0"
   },
   "dependencies": {
     "@lucide/svelte": "^1.30.0",
