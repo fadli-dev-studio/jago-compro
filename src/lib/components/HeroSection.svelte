@@ -399,7 +399,7 @@
           </span>
           <div class="flex flex-col">
             <span class="text-white font-bold text-xs uppercase tracking-wider">
-              100% Desain Custom
+              Desain Custom
             </span>
             <span class="text-gray-400 text-[10px] sm:text-xs leading-normal max-w-48 mx-auto sm:mx-0">
               Dibuat khusus dari awal sesuai kebutuhan dan Branding Perusahaan.
