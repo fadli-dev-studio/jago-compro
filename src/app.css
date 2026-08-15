@@ -278,7 +278,7 @@
     rgba(0, 209, 178, 0.14) 100%
   );
   background-size: 250% 250%;
-  animation: liquidShimmerMesh 3.2s ease-in-out infinite;
+  animation: liquidShimmerMesh 2.4s ease-in-out infinite;
   filter: blur(85px);
   will-change: background-position;
 }
@@ -291,29 +291,29 @@
   mix-blend-mode: screen;
 }
 
-/* 6 Synchronized Harmonic Rates */
+/* 6 Synchronized Harmonic Rates (Increased Speed by 1 Level) */
 .liquid-wave-primary {
-  animation: liquidFlowPrimary 3.2s ease-in-out infinite alternate;
+  animation: liquidFlowPrimary 2.4s ease-in-out infinite alternate;
 }
 
 .liquid-wave-diag-left {
-  animation: liquidFlowDiagonalLeft 3.8s ease-in-out infinite alternate;
+  animation: liquidFlowDiagonalLeft 2.8s ease-in-out infinite alternate;
 }
 
 .liquid-wave-diag-right {
-  animation: liquidFlowDiagonalRight 3.6s ease-in-out infinite alternate;
+  animation: liquidFlowDiagonalRight 2.7s ease-in-out infinite alternate;
 }
 
 .liquid-wave-silk {
-  animation: liquidFlowHorizontalSilk 3.0s ease-in-out infinite alternate;
+  animation: liquidFlowHorizontalSilk 2.2s ease-in-out infinite alternate;
 }
 
 .liquid-wave-tidal {
-  animation: liquidFlowTidalPulse 4.0s ease-in-out infinite alternate;
+  animation: liquidFlowTidalPulse 3.0s ease-in-out infinite alternate;
 }
 
 .liquid-wave-counter {
-  animation: liquidFlowCounterCurrent 3.4s ease-in-out infinite alternate;
+  animation: liquidFlowCounterCurrent 2.5s ease-in-out infinite alternate;
 }
 
 @media (prefers-reduced-motion: reduce) {
