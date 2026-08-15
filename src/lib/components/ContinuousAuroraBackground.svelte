@@ -52,9 +52,10 @@
   <div class="aurora-liquid-wave liquid-wave-silk top-[90%] left-[-15%] w-[130%] h-85 bg-linear-to-r from-transparent via-[#00D1B2]/22 to-[#10B981]/24"></div>
   <div class="aurora-liquid-wave liquid-wave-primary top-[96%] left-[-10%] w-[120%] h-80 bg-linear-to-r from-transparent via-[#047857]/22 to-[#00D1B2]/18"></div>
 
-  <!-- 5. Seamless Transition from Hero Section (Top Fade) -->
-  <div class="absolute top-0 left-0 right-0 h-40 bg-linear-to-b from-[#0A0A0A] to-transparent z-10 pointer-events-none"></div>
+  <!-- 5. Seamless Transition from Hero Section & to Footer (Smooth Top Fade-In & Bottom Fade-Out) -->
+  <div class="absolute top-0 left-0 right-0 h-48 bg-linear-to-b from-[#0A0A0A] via-[#0A0A0A]/60 to-transparent z-10 pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-48 bg-linear-to-t from-[#0A0A0A] via-[#0A0A0A]/60 to-transparent z-10 pointer-events-none"></div>
 
   <!-- 6. Soft Edge Ambient Vignette -->
-  <div class="absolute inset-0 bg-linear-to-r from-[#0A0A0A]/45 via-transparent to-[#0A0A0A]/45 pointer-events-none"></div>
+  <div class="absolute inset-0 bg-linear-to-r from-[#0A0A0A]/50 via-transparent to-[#0A0A0A]/50 pointer-events-none"></div>
 </div>
