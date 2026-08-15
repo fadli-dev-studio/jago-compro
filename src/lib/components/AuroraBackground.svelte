@@ -32,29 +32,29 @@
   <!-- Multi-Orb Aurora Dynamic Lights based on Variant -->
   {#if variant === 'default' || variant === 'full'}
     <!-- Dual Orb Flow -->
-    <div class="aurora-liquid-wave liquid-wave-1 -top-16 -left-16 w-137.5 h-137.5 bg-linear-to-tr from-[#00D1B2]/35 via-[#10B981]/40 to-teal-400/25"></div>
-    <div class="aurora-liquid-wave liquid-wave-2 -bottom-16 -right-16 w-125 h-112.5 bg-linear-to-bl from-[#059669]/30 via-[#00F5D4]/30 to-emerald-500/20"></div>
-    <div class="aurora-liquid-wave liquid-wave-3 top-1/3 right-1/4 w-112.5 h-100 bg-linear-to-tr from-[#00F5D4]/25 via-[#00D1B2]/30 to-emerald-600/20"></div>
+    <div class="aurora-liquid-wave liquid-wave-primary -top-16 -left-16 w-137.5 h-137.5 bg-linear-to-tr from-[#00D1B2]/35 via-[#10B981]/40 to-teal-400/25"></div>
+    <div class="aurora-liquid-wave liquid-wave-diag-right -bottom-16 -right-16 w-125 h-112.5 bg-linear-to-bl from-[#059669]/30 via-[#00F5D4]/30 to-emerald-500/20"></div>
+    <div class="aurora-liquid-wave liquid-wave-silk top-1/3 right-1/4 w-112.5 h-100 bg-linear-to-tr from-[#00F5D4]/25 via-[#00D1B2]/30 to-emerald-600/20"></div>
   {:else if variant === 'left'}
     <!-- Left Anchored Fluid Aurora Ribbon -->
-    <div class="aurora-liquid-wave liquid-wave-1 -top-20 -left-20 w-150 h-125 bg-linear-to-br from-[#00D1B2]/40 via-[#10B981]/45 to-teal-500/25"></div>
-    <div class="aurora-liquid-wave liquid-wave-2 top-1/3 -left-12 w-120 h-112.5 bg-linear-to-tr from-[#047857]/30 via-[#00F5D4]/30 to-emerald-600/20"></div>
-    <div class="aurora-liquid-wave liquid-wave-3 bottom-0 left-1/4 w-112.5 h-100 bg-linear-to-tr from-[#059669]/25 via-[#00D1B2]/25 to-teal-400/15"></div>
+    <div class="aurora-liquid-wave liquid-wave-diag-left -top-20 -left-20 w-150 h-125 bg-linear-to-br from-[#00D1B2]/40 via-[#10B981]/45 to-teal-500/25"></div>
+    <div class="aurora-liquid-wave liquid-wave-counter top-1/3 -left-12 w-120 h-112.5 bg-linear-to-tr from-[#047857]/30 via-[#00F5D4]/30 to-emerald-600/20"></div>
+    <div class="aurora-liquid-wave liquid-wave-silk bottom-0 left-1/4 w-112.5 h-100 bg-linear-to-tr from-[#059669]/25 via-[#00D1B2]/25 to-teal-400/15"></div>
   {:else if variant === 'right'}
     <!-- Right Anchored Fluid Aurora Ribbon -->
-    <div class="aurora-liquid-wave liquid-wave-2 -top-20 -right-20 w-150 h-137.5 bg-linear-to-bl from-[#00D1B2]/40 via-[#10B981]/45 to-emerald-600/25"></div>
-    <div class="aurora-liquid-wave liquid-wave-1 top-1/3 -right-12 w-145 h-125 bg-linear-to-tr from-[#059669]/30 via-[#00F5D4]/30 to-teal-500/20"></div>
-    <div class="aurora-liquid-wave liquid-wave-3 bottom-0 right-1/4 w-112.5 h-100 bg-linear-to-r from-[#00F5D4]/25 via-[#00D1B2]/25 to-emerald-500/15"></div>
+    <div class="aurora-liquid-wave liquid-wave-diag-right -top-20 -right-20 w-150 h-137.5 bg-linear-to-bl from-[#00D1B2]/40 via-[#10B981]/45 to-emerald-600/25"></div>
+    <div class="aurora-liquid-wave liquid-wave-counter top-1/3 -right-12 w-145 h-125 bg-linear-to-tr from-[#059669]/30 via-[#00F5D4]/30 to-teal-500/20"></div>
+    <div class="aurora-liquid-wave liquid-wave-silk bottom-0 right-1/4 w-112.5 h-100 bg-linear-to-r from-[#00F5D4]/25 via-[#00D1B2]/25 to-emerald-500/15"></div>
   {:else if variant === 'center'}
     <!-- Central Symmetrical Aurora Expansion -->
-    <div class="aurora-liquid-wave liquid-wave-1 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-125 bg-linear-to-tr from-[#00D1B2]/35 via-[#10B981]/40 to-teal-300/25"></div>
-    <div class="aurora-liquid-wave liquid-wave-2 -top-16 left-1/3 w-162.5 h-137.5 bg-linear-to-bl from-[#059669]/30 via-[#00F5D4]/30 to-emerald-500/20"></div>
-    <div class="aurora-liquid-wave liquid-wave-3 -bottom-16 right-1/3 w-112.5 h-100 bg-linear-to-r from-[#00D1B2]/25 via-[#047857]/25 to-teal-400/15"></div>
+    <div class="aurora-liquid-wave liquid-wave-tidal top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-125 bg-linear-to-tr from-[#00D1B2]/35 via-[#10B981]/40 to-teal-300/25"></div>
+    <div class="aurora-liquid-wave liquid-wave-diag-left -top-16 left-1/3 w-162.5 h-137.5 bg-linear-to-bl from-[#059669]/30 via-[#00F5D4]/30 to-emerald-500/20"></div>
+    <div class="aurora-liquid-wave liquid-wave-primary -bottom-16 right-1/3 w-112.5 h-100 bg-linear-to-r from-[#00D1B2]/25 via-[#047857]/25 to-teal-400/15"></div>
   {:else if variant === 'diagonal'}
     <!-- Dual Diagonal Aurora Waves -->
-    <div class="aurora-liquid-wave liquid-wave-1 -top-24 -right-24 w-137.5 h-125 bg-linear-to-tr from-[#00D1B2]/40 via-[#10B981]/45 to-emerald-600/30"></div>
-    <div class="aurora-liquid-wave liquid-wave-3 -bottom-24 -left-24 w-150 h-125 bg-linear-to-bl from-[#047857]/35 via-[#00F5D4]/35 to-teal-500/25"></div>
-    <div class="aurora-liquid-wave liquid-wave-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-105 h-100 bg-linear-to-r from-[#00D1B2]/25 via-[#10B981]/25 to-teal-400/15"></div>
+    <div class="aurora-liquid-wave liquid-wave-diag-right -top-24 -right-24 w-137.5 h-125 bg-linear-to-tr from-[#00D1B2]/40 via-[#10B981]/45 to-emerald-600/30"></div>
+    <div class="aurora-liquid-wave liquid-wave-diag-left -bottom-24 -left-24 w-150 h-125 bg-linear-to-bl from-[#047857]/35 via-[#00F5D4]/35 to-teal-500/25"></div>
+    <div class="aurora-liquid-wave liquid-wave-silk top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-105 h-100 bg-linear-to-r from-[#00D1B2]/25 via-[#10B981]/25 to-teal-400/15"></div>
   {/if}
 
   <!-- Top and Bottom Vignette for seamless transitions -->

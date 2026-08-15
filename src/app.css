@@ -163,66 +163,96 @@
 }
 
 /* ============================================================
-   Emerald Aurora Liquid Texture System (Larutan Cair Organik)
-   Continuous, subtle, fluid liquid waves without circular orbs
+   Emerald Aurora Harmonic Liquid System (Variatif & Sinkron)
+   6 Synchronized Multi-Angle Fluid Waves & Tidal Swells
    ============================================================ */
-@keyframes liquidFlow1 {
+@keyframes liquidFlowPrimary {
   0% {
-    border-radius: 40% 60% 65% 35% / 40% 45% 55% 60%;
-    transform: translate3d(-8%, -4%, 0) rotate(-3deg) scaleY(1);
+    border-radius: 42% 58% 68% 32% / 38% 46% 54% 62%;
+    transform: translate3d(-10%, -6%, 0) rotate(-4deg) scale(1);
   }
   50% {
-    border-radius: 65% 35% 45% 55% / 55% 60% 40% 45%;
-    transform: translate3d(10%, 8%, 0) rotate(5deg) scaleY(1.15);
+    border-radius: 68% 32% 42% 58% / 58% 64% 36% 42%;
+    transform: translate3d(12%, 8%, 0) rotate(6deg) scale(1.16);
   }
   100% {
-    border-radius: 35% 65% 50% 50% / 45% 40% 60% 55%;
-    transform: translate3d(-6%, 12%, 0) rotate(-6deg) scaleY(0.92);
+    border-radius: 36% 64% 52% 48% / 46% 38% 62% 54%;
+    transform: translate3d(-8%, 14%, 0) rotate(-7deg) scale(0.94);
   }
 }
 
-@keyframes liquidFlow2 {
+@keyframes liquidFlowDiagonalLeft {
   0% {
-    border-radius: 55% 45% 40% 60% / 50% 35% 65% 50%;
-    transform: translate3d(8%, 10%, 0) rotate(4deg) scaleX(1);
+    border-radius: 54% 46% 38% 62% / 48% 36% 64% 52%;
+    transform: translate3d(10%, 12%, 0) rotate(14deg) scaleX(1);
   }
   50% {
-    border-radius: 35% 65% 60% 40% / 40% 60% 40% 60%;
-    transform: translate3d(-10%, -6%, 0) rotate(-6deg) scaleX(1.18);
+    border-radius: 38% 62% 64% 36% / 42% 58% 42% 58%;
+    transform: translate3d(-12%, -8%, 0) rotate(4deg) scaleX(1.22);
   }
   100% {
-    border-radius: 50% 50% 35% 65% / 60% 45% 55% 40%;
-    transform: translate3d(6%, -12%, 0) rotate(5deg) scaleX(0.95);
+    border-radius: 48% 52% 36% 64% / 58% 46% 54% 42%;
+    transform: translate3d(8%, -14%, 0) rotate(16deg) scaleX(0.92);
   }
 }
 
-@keyframes liquidFlow3 {
+@keyframes liquidFlowDiagonalRight {
   0% {
-    border-radius: 45% 55% 60% 40% / 45% 50% 50% 55%;
-    transform: translate3d(-10%, 12%, 0) rotate(-5deg) scale(1);
+    border-radius: 46% 54% 58% 42% / 42% 48% 52% 58%;
+    transform: translate3d(-12%, 10%, 0) rotate(-16deg) scale(1.05);
   }
   50% {
-    border-radius: 60% 40% 40% 60% / 55% 40% 60% 45%;
-    transform: translate3d(12%, -10%, 0) rotate(6deg) scale(1.18);
+    border-radius: 62% 38% 38% 62% / 58% 42% 58% 42%;
+    transform: translate3d(14%, -12%, 0) rotate(-4deg) scale(1.2);
   }
   100% {
-    border-radius: 40% 60% 55% 45% / 50% 55% 45% 50%;
-    transform: translate3d(-8%, -6%, 0) rotate(-4deg) scale(0.95);
+    border-radius: 38% 62% 54% 46% / 48% 56% 44% 52%;
+    transform: translate3d(-10%, -8%, 0) rotate(-18deg) scale(0.92);
   }
 }
 
-@keyframes liquidFlow4 {
+@keyframes liquidFlowHorizontalSilk {
   0% {
-    border-radius: 50% 50% 50% 50% / 40% 60% 40% 60%;
-    transform: translate3d(6%, -8%, 0) rotate(3deg) scaleY(1);
+    border-radius: 50% 50% 45% 55% / 40% 60% 40% 60%;
+    transform: translate3d(-15%, -4%, 0) skewX(-8deg) scaleY(1);
   }
   50% {
-    border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%;
-    transform: translate3d(-10%, 10%, 0) rotate(-5deg) scaleY(1.15);
+    border-radius: 42% 58% 58% 42% / 60% 40% 60% 40%;
+    transform: translate3d(15%, 6%, 0) skewX(6deg) scaleY(1.18);
   }
   100% {
-    border-radius: 60% 40% 40% 60% / 45% 55% 45% 55%;
-    transform: translate3d(10%, 6%, 0) rotate(4deg) scaleY(0.9);
+    border-radius: 58% 42% 42% 58% / 45% 55% 45% 55%;
+    transform: translate3d(-12%, 10%, 0) skewX(-10deg) scaleY(0.9);
+  }
+}
+
+@keyframes liquidFlowTidalPulse {
+  0% {
+    border-radius: 60% 40% 55% 45% / 52% 48% 52% 48%;
+    transform: translate3d(6%, -10%, 0) scale(0.96);
+  }
+  50% {
+    border-radius: 42% 58% 42% 58% / 45% 55% 45% 55%;
+    transform: translate3d(-8%, 8%, 0) scale(1.22);
+  }
+  100% {
+    border-radius: 55% 45% 60% 40% / 58% 42% 58% 42%;
+    transform: translate3d(10%, 4%, 0) scale(0.92);
+  }
+}
+
+@keyframes liquidFlowCounterCurrent {
+  0% {
+    border-radius: 45% 55% 50% 50% / 50% 45% 55% 50%;
+    transform: translate3d(-10%, 8%, 0) rotate(8deg) scaleY(1.1);
+  }
+  50% {
+    border-radius: 55% 45% 45% 55% / 45% 55% 45% 55%;
+    transform: translate3d(12%, -8%, 0) rotate(-10deg) scaleY(0.88);
+  }
+  100% {
+    border-radius: 48% 52% 58% 42% / 52% 48% 52% 48%;
+    transform: translate3d(-6%, -12%, 0) rotate(12deg) scaleY(1.15);
   }
 }
 
@@ -240,12 +270,12 @@
 
 .aurora-liquid-mesh {
   background: linear-gradient(
-    125deg,
-    rgba(0, 209, 178, 0.13) 0%,
-    rgba(16, 185, 129, 0.16) 25%,
-    rgba(0, 245, 212, 0.10) 50%,
-    rgba(5, 150, 105, 0.14) 75%,
-    rgba(0, 209, 178, 0.13) 100%
+    130deg,
+    rgba(0, 209, 178, 0.14) 0%,
+    rgba(16, 185, 129, 0.17) 25%,
+    rgba(0, 245, 212, 0.11) 50%,
+    rgba(5, 150, 105, 0.15) 75%,
+    rgba(0, 209, 178, 0.14) 100%
   );
   background-size: 250% 250%;
   animation: liquidShimmerMesh 3.2s ease-in-out infinite;
@@ -257,31 +287,42 @@
   position: absolute;
   pointer-events: none;
   will-change: transform, border-radius;
-  filter: blur(95px);
+  filter: blur(90px);
   mix-blend-mode: screen;
 }
 
-.liquid-wave-1 {
-  animation: liquidFlow1 2.8s ease-in-out infinite alternate;
+/* 6 Synchronized Harmonic Rates */
+.liquid-wave-primary {
+  animation: liquidFlowPrimary 3.2s ease-in-out infinite alternate;
 }
 
-.liquid-wave-2 {
-  animation: liquidFlow2 3.6s ease-in-out infinite alternate;
+.liquid-wave-diag-left {
+  animation: liquidFlowDiagonalLeft 3.8s ease-in-out infinite alternate;
 }
 
-.liquid-wave-3 {
-  animation: liquidFlow3 3.1s ease-in-out infinite alternate;
+.liquid-wave-diag-right {
+  animation: liquidFlowDiagonalRight 3.6s ease-in-out infinite alternate;
 }
 
-.liquid-wave-4 {
-  animation: liquidFlow4 3.3s ease-in-out infinite alternate;
+.liquid-wave-silk {
+  animation: liquidFlowHorizontalSilk 3.0s ease-in-out infinite alternate;
+}
+
+.liquid-wave-tidal {
+  animation: liquidFlowTidalPulse 4.0s ease-in-out infinite alternate;
+}
+
+.liquid-wave-counter {
+  animation: liquidFlowCounterCurrent 3.4s ease-in-out infinite alternate;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .liquid-wave-1,
-  .liquid-wave-2,
-  .liquid-wave-3,
-  .liquid-wave-4,
+  .liquid-wave-primary,
+  .liquid-wave-diag-left,
+  .liquid-wave-diag-right,
+  .liquid-wave-silk,
+  .liquid-wave-tidal,
+  .liquid-wave-counter,
   .aurora-liquid-mesh {
     animation: none;
   }
